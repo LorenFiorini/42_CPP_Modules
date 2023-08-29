@@ -6,24 +6,24 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:41:03 by lfiorini          #+#    #+#              #
-#    Updated: 2023/08/29 14:24:40 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/08/29 15:28:50 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= megaphone
-	
+NAME	= megaphone	
+
 CC		= c++
 
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-RM		= rm -rf
+SRC		= megaphone.cpp
 
-SRCS	= megaphone.cpp
+RM		= rm -rf
 
 all:	$(NAME)
 
 $(NAME):
-		$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+		$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
 		$(RM) $(NAME)

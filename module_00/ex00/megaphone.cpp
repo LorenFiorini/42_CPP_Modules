@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:41:00 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/29 15:20:01 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:04:29 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,18 @@
  * @param argv The arguments passed to the program
 */
 
-/*
-$>./megaphone "shhhhh... I think the students are asleep..."
-SHHHHH... I THINK THE STUDENTS ARE ASLEEP...
-$>./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.
-$>./megaphone
-* LOUD AND UNBEARABLE FEEDBACK NOISE *
-$>
-*/
-
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	std::string	str;
 
-	i = 1;
-	if (argc == 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	}
-	while (i < argc)
+	if (argc > 1)
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			std::cout << (char)std::toupper(argv[i][j]);
-			j++;
-		}
-		i++;
+		for (int i = 1; i < argc; i++)
+			for (int j = 0; argv[i][j]; j++)
+				str += toupper(argv[i][j]);
 	}
-	std::cout << std::endl;
+	else
+		str = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << str << std::endl;
 	return (0);
 }
