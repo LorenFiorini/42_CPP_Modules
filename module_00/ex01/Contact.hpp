@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:41:56 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/29 23:48:38 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/09/27 03:26:45 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,6 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void	setFirstName(std::string firstName) {
-			this->_firstName = firstName;
-		}
-		void	setLastName(std::string lastName) {
-			this->_lastName = lastName;
-		}
-		void	setNickname(std::string nickname) {
-			this->_nickname = nickname;
-		}
-		void	setPhoneNumber(std::string phoneNumber) {
-			this->_phoneNumber = phoneNumber;
-		}
-		void	setDarkestSecret(std::string darkestSecret) {
-			this->_darkestSecret = darkestSecret;
-		}
-		std::string	getFirstName(void) {
-			return (this->_firstName);
-		}
-		std::string	getLastName(void) {
-			return (this->_lastName);
-		}
-		std::string	getNickname(void) {
-			return (this->_nickname);
-		}
-		std::string	getPhoneNumber(void) {
-			return (this->_phoneNumber);
-		} 
-		std::string	getDarkestSecret(void) {
-			return (this->_darkestSecret);
-		} 
 };
 
 
