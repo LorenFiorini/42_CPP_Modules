@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:56:50 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/06 19:47:15 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/06 21:16:32 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ INC_D		=	./includes
 INCS		=	$(INC_D)/Contact.hpp\
 				$(INC_D)/PhoneBook.hpp
 
-FILES		=	main\
-				Contact\
-				PhoneBook
+FILES		=	Contact\
+				PhoneBook\
+				main
 
 SRCS		=	$(addprefix $(SRCS_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS		=	$(addprefix $(OBJS_D)/, $(addsuffix .o, $(FILES)))
@@ -41,7 +41,7 @@ $(NAME):		$(OBJS) $(INCS)
 				$(CC) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 
 clean:
-				$(RM) $(OBJDIR) $(OBJ)
+		$(RM) $(OBJDIR) $(OBJ)
 
 fclean:			clean
 				$(RM) $(NAME)

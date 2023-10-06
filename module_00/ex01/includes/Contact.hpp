@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:41:56 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/06 19:46:47 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/06 20:41:45 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class Contact
 {
