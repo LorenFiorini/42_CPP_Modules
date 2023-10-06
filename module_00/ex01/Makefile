@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:56:50 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/06 21:16:32 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/06 21:28:37 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,14 +37,14 @@ $(OBJS_D)/%.o:	$(SRCS_D)/%.cpp $(INCS)
 				mkdir -p $(dir $@)
 				$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME):		$(OBJS) $(INCS)
-				$(CC) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
+$(NAME):	$(OBJS) $(INCS)
+			$(CC) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 
 clean:
 		$(RM) $(OBJDIR) $(OBJ)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean:	clean
+		$(RM) $(NAME)
 
 re:				fclean all
 
