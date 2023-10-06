@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:41:03 by lfiorini          #+#    #+#              #
-#    Updated: 2023/08/29 15:28:50 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/06 19:47:20 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,3 +33,5 @@ fclean:	clean
 re:		fclean all
 
 .PHONY:	all clean fclean re
+
+#  Lorenzo Fiorini 

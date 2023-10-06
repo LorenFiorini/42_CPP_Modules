@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:56:50 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/02 05:37:19 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/06 19:47:15 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME		=	PhoneBook
 	
 CC			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
+INCLUDES	=	-I$(INC_D)
 RM			=	rm -rf
 
 OBJS_D		=	./objects
@@ -34,10 +35,10 @@ all:			$(NAME)
 
 $(OBJS_D)/%.o:	$(SRCS_D)/%.cpp $(INCS)
 				mkdir -p $(dir $@)
-				$(CC) $(FLAGS) -c $< -o $@
+				$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME):		$(OBJS) $(INCS)
-				$(CC) $(OBJS) -o $(NAME)
+				$(CC) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 
 clean:
 				$(RM) $(OBJDIR) $(OBJ)
@@ -48,3 +49,5 @@ fclean:			clean
 re:				fclean all
 
 .PHONY: all clean fclean re bonus
+
+#  Lorenzo Fiorini 
