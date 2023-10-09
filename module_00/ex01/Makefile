@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 12:56:50 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/06 21:28:37 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/06 21:41:53 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,13 @@ $(NAME):	$(OBJS) $(INCS)
 			$(CC) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 
 clean:
-		$(RM) $(OBJDIR) $(OBJ)
+		$(RM) $(OBJS_D)
 
 fclean:	clean
 		$(RM) $(NAME)
 
 re:				fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
 #  Lorenzo Fiorini 
