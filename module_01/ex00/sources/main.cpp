@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 21:29:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/13 22:29:55 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/15 03:16:19 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	createZombieOnHeap(void)
 	zombie_on_heap->announce();
 	delete zombie_on_heap;
 }
+
 int	main(void)
 {
 	std::cout << "\nWelcome to BraiiiiiiinnnzzzZ!" << std::endl;

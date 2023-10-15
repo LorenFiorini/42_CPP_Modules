@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 22:39:01 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/13 22:00:15 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/15 03:27:59 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	Zombies
 
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
