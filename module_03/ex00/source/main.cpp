@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 02:32:48 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 04:26:27 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/20 04:23:59 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/20 05:04:33 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "ClapTrap.hpp"
 
-# include <iostream>
-
-class Fixed
+int	main(void)
 {
-	private:
-		int					_value;
-		static const int	_bits = 8;
-	public:
-		Fixed();								// Default constructor
-		Fixed(const Fixed &src);				// Copy constructor
-		~Fixed();								// Destructor
-		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-};
+	ClapTrap	*clap	= new ClapTrap("Clap");
+	ClapTrap	*clap2	= new ClapTrap("Clap2");
 
-#endif
+	clap->attack("Clap2");
+	clap2->takeDamage(5);
+	clap2->beRepaired(5);
+	delete clap;
+	delete clap2;
+	return (0);
+}

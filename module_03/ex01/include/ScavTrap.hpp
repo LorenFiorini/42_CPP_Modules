@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 02:32:48 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 04:26:27 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/20 05:04:59 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/20 05:15:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
+# include <string>
 # include <iostream>
+# include "ClapTrap.hpp"
 
-class Fixed
+class ScavTrap : public ClapTrap
 {
 	private:
-		int					_value;
-		static const int	_bits = 8;
+		ScavTrap();										// Default constructor
+
 	public:
-		Fixed();								// Default constructor
-		Fixed(const Fixed &src);				// Copy constructor
-		~Fixed();								// Destructor
-		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		ScavTrap(std::string name);						// Constructor with name
+		ScavTrap(const ScavTrap &src);					// Copy constructor
+		~ScavTrap();									// Destructor
+		ScavTrap&	operator=(const ScavTrap &right);	// Copy assignment operator
+
+		void		attack(const std::string& target);
+		void		guardGate();
 };
 
 #endif
