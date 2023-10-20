@@ -67,7 +67,9 @@
 		"memory_resource": "cpp",
 		"numeric": "cpp",
 		"random": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"filesystem": "cpp",
+		"stack": "cpp"
 	},
 	"42header.email": "lfiorini@student.42heilbronn.de",
 	"42header.username": "lfiorini",
