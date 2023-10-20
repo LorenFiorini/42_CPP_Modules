@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 05:04:59 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:40:33 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/20 06:44:00 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/20 06:49:09 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <string>
 # include <iostream>
+
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
-	private:
-		ScavTrap();										// Default constructor
+	protected:
+		FragTrap();										// Default constructor
 
 	public:
-		ScavTrap(std::string name);						// Constructor with name
-		ScavTrap(const ScavTrap &src);					// Copy constructor
-		~ScavTrap();									// Destructor
-		ScavTrap&	operator=(const ScavTrap &right);	// Copy assignment operator
+		FragTrap(std::string name);						// Constructor with name
+		FragTrap(const FragTrap &src);					// Copy constructor
+		~FragTrap();									// Destructor
+		FragTrap&	operator=(const FragTrap &right);	// Copy assignment operator
 
-		void		attack(const std::string& target);
-		void		guardGate();
+		void		highFivesGuys(void);
 };
 
 #endif

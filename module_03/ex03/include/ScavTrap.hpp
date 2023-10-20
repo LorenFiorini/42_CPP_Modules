@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 05:04:59 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:40:33 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/20 06:48:44 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class ScavTrap : public ClapTrap
 {
-	private:
+	protected:
 		ScavTrap();										// Default constructor
 
 	public:

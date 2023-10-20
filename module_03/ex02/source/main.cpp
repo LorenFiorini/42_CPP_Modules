@@ -6,30 +6,31 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 05:01:30 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:42:32 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/20 06:52:25 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	*clapTrap = new ClapTrap("ClapTrap");
-	ClapTrap	*clapTrap2 = new ClapTrap(*clapTrap);
-	ClapTrap	*clapTrap3 = new ClapTrap("ClapTrap3");
-
-	clapTrap->attack("ClapTrap2");
-	clapTrap->takeDamage(5);
-	clapTrap->attack("ClapTrap2");
-	clapTrap->beRepaired(5);
-	clapTrap->attack("ClapTrap2");
-	clapTrap->takeDamage(100);
-	clapTrap->attack("ClapTrap2");
-	clapTrap->beRepaired(100);
-	clapTrap->attack("ClapTrap2");
-
-	delete clapTrap;
-	delete clapTrap2;
-	delete clapTrap3;
+	FragTrap	*fragTrap = new FragTrap("FragTrap");
+	FragTrap	*fragTrap2 = new FragTrap(*fragTrap);
+	FragTrap	*fragTrap3 = new FragTrap("FragTrap3");
+	
+	fragTrap->attack("FragTrap2");
+	fragTrap->takeDamage(5);
+	fragTrap->attack("FragTrap2");
+	fragTrap->beRepaired(5);
+	fragTrap->attack("FragTrap2");
+	fragTrap->takeDamage(100);
+	fragTrap->attack("FragTrap2");
+	fragTrap->beRepaired(100);
+	fragTrap->attack("FragTrap2");
+	fragTrap->highFivesGuys();
+	
+	delete fragTrap;
+	delete fragTrap2;
+	delete fragTrap3;
 	return (0);
 }
