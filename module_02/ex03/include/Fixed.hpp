@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 02:47:27 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/29 05:50:51 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/29 06:14:37 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/29 07:45:49 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
 		Fixed(const Fixed &src);				// Copy constructor
 		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
 		~Fixed();								// Destructor
-				
+		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;

@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 00:30:42 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/29 05:44:40 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/29 09:31:08 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= test_ex03
+NAME	= BSP
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98

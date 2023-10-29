@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 02:32:48 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/29 04:38:06 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/29 06:12:26 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/29 06:22:56 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed
 		int					_value;
 		static const int	_bits = 8;
 	public:
-		Fixed();								// Default constructor
+		Fixed(void);							// Default constructor
 		Fixed(const Fixed &src);				// Copy constructor
 		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
 		~Fixed();								// Destructor

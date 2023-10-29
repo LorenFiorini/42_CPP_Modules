@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:49:14 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 02:54:24 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 07:13:07 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	main(void)
 	std::cout	<< a	<< std::endl;
 	std::cout	<< a++	<< std::endl;
 	std::cout	<< a	<< std::endl;
+
 	std::cout	<< b	<< std::endl;
+
 	std::cout	<< Fixed::max( a, b ) << std::endl;
-	return 0;
+
+	return (0);
 }

@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 00:30:30 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/29 04:53:40 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/29 09:25:19 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= test_ex00
+NAME	= a.out
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98

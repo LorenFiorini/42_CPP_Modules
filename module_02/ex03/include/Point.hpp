@@ -6,13 +6,15 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:58:13 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/29 05:50:47 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 08:03:23 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POINT_HPP
 # define POINT_HPP
 
+# include <iostream>
+# include <cmath>
 # include "Fixed.hpp"
 
 class Point
@@ -23,7 +25,7 @@ class Point
 	public:
 		Point(void);							// Default constructor		
 		Point(const Point &src);				// Copy constructor
-		Point(const float x, const float y);	// Float constructor
+		Point(const float x, const float y);	// Two Float constructor
 		Point&	operator=(const Point &right);	// Copy assignment operator
 		~Point();								// Destructor
 		
@@ -31,6 +33,7 @@ class Point
 		Fixed	getY(void) const;
 };
 
-bool	bsp(Point const a, Point const b, Point const c, Point const point);
+std::ostream&	operator<<(std::ostream &out, const Point &value);
+bool			bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

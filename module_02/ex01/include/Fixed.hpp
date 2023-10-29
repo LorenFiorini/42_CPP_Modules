@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:32:48 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/29 05:49:44 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 06:45:05 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Fixed
 		Fixed(void);							// Default constructor
 		Fixed(const int value);					// Int constructor
 		Fixed(const float value);				// Float constructor
-		Fixed(const Fixed &src);				// Copy constructor
 		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
+		Fixed(const Fixed &src);				// Copy constructor
 		~Fixed();								// Destructor
 		
 		int		getRawBits(void) const;
