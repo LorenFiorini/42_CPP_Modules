@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 04:23:33 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 05:06:20 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 09:58:05 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class ClapTrap
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
 
-		ClapTrap();										// Default constructor, Maybe Private?
+		ClapTrap();										
 	public:
-		ClapTrap(std::string name);						// Constructor with name
+		ClapTrap(std::string name);						// Constructor
 		ClapTrap(const ClapTrap &src);					// Copy constructor
-		~ClapTrap();									// Destructor
 		ClapTrap&	operator=(const ClapTrap &right);	// Copy assignment operator
+		~ClapTrap();									// Destructor
 		
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
