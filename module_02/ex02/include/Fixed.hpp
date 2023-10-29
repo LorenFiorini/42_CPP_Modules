@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:47:27 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 02:51:26 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 05:49:33 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Fixed
 		int					_value;
 		static const int	_bits = 8;
 	public:
-		Fixed(void);
-		Fixed(const int value);
-		Fixed(const float value);
-		Fixed(const Fixed &src);
-		~Fixed();
-		Fixed&	operator=(const Fixed &right);
+		Fixed(void);							// Default constructor
+		Fixed(const int value);					// Int constructor
+		Fixed(const float value);				// Float constructor
+		Fixed(const Fixed &src);				// Copy constructor
+		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
+		~Fixed();								// Destructor
 		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

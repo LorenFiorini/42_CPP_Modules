@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:58:13 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 02:59:26 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 05:50:47 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ class Point
 		Fixed const	_x;
 		Fixed const	_y;
 	public:
-		Point(void);
-		Point(const Point &src);
-		Point(const float x, const float y);
-		~Point();
-		Point&	operator=(const Point &right);
+		Point(void);							// Default constructor		
+		Point(const Point &src);				// Copy constructor
+		Point(const float x, const float y);	// Float constructor
+		Point&	operator=(const Point &right);	// Copy assignment operator
+		~Point();								// Destructor
 		
 		Fixed	getX(void) const;
 		Fixed	getY(void) const;
