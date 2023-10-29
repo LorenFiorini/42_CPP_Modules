@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:32:48 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 04:26:27 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 04:38:06 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 	public:
 		Fixed();								// Default constructor
 		Fixed(const Fixed &src);				// Copy constructor
-		~Fixed();								// Destructor
 		Fixed&	operator=(const Fixed &right);	// Copy assignment operator
+		~Fixed();								// Destructor
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
