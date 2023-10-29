@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 21:26:44 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/13 21:41:53 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 01:54:01 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Zombie
 		void	announce(void);
 };
 
-Zombie	*newZombie(std::string name);
+Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
 
 #endif

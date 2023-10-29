@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 08:05:25 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/17 08:41:35 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 02:23:25 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,5 @@ class HumanA
 
 		void	attack(void);
 };
+
+#endif

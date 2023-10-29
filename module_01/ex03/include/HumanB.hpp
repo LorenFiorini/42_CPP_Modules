@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 08:05:17 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/17 08:41:41 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 02:23:29 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,5 @@ class HumanB
 		void	attack(void);
 		void	setWeapon(Weapon &weapon);
 };
+
+#endif

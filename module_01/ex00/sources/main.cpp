@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 21:29:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/15 03:16:19 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 01:56:07 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-static void	createZombieOnStack(void)
+static void	testZombieOnStack(void)
 {
 	std::string	name;
 
@@ -23,7 +23,7 @@ static void	createZombieOnStack(void)
 	randomChump(name);
 }
 
-static void	createZombieOnHeap(void)
+static void	testZombieOnHeap(void)
 {
 	std::string	name;
 
@@ -42,7 +42,7 @@ int	main(void)
 	std::cout << "This program creates two Zombies" << std::endl;
 	std::cout << "One on the stack and another one on the heap." << std::endl;
 	
-	createZombieOnStack();
-	createZombieOnHeap();
+	testZombieOnStack();
+	testZombieOnHeap();
 	return (0);
 }

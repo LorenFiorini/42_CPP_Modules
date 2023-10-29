@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 22:39:33 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/15 03:49:41 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/29 03:01:26 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME	=	Zombie_ex02
+NAME	=	HI_THIS_IS_BRAIN
 
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
