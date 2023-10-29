@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lfiorini <lfiorini@student.42.fr>          +#+  +:+       +#+         #
+#    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 00:27:55 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/29 04:07:08 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/29 06:19:08 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
