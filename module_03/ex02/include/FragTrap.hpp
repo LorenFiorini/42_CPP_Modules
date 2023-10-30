@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:44:00 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:49:09 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 23:05:56 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@
 
 class FragTrap : public ClapTrap
 {
-	protected:
-		FragTrap();										// Default constructor
-
 	public:
-		FragTrap(std::string name);						// Constructor with name
+		// Orthodox Canonical Class Form
+		FragTrap(void);									// Default constructor
+		FragTrap(std::string name);
 		FragTrap(const FragTrap &src);					// Copy constructor
-		~FragTrap();									// Destructor
 		FragTrap&	operator=(const FragTrap &right);	// Copy assignment operator
+		~FragTrap(void);								// Destructor
 
 		void		highFivesGuys(void);
 };
+
+std::ostream&	operator<<(std::ostream& os, const FragTrap& right);
 
 #endif

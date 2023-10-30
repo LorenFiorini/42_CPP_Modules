@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 04:23:33 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 05:15:38 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:06:50 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,32 @@ class ClapTrap
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
 
-		ClapTrap();										// Default constructor, Maybe Private?
 	public:
-		ClapTrap(std::string name);						// Constructor with name
-		ClapTrap(const ClapTrap &src);					// Copy constructor
-		~ClapTrap();									// Destructor
-		ClapTrap&	operator=(const ClapTrap &right);	// Copy assignment operator
+		// Orthodox Canonical Class Form 
+		ClapTrap(void);
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &src);
+		ClapTrap&	operator=(const ClapTrap &right);
+		virtual ~ClapTrap(void);
 		
+		// Getters
+		std::string		getName(void) const;
+		unsigned int	getHitPoints(void) const;
+		unsigned int	getEnergyPoints(void) const;
+		unsigned int	getAttackDamage(void) const;
+
+		// Setters
+		void			setName(std::string name);
+		void			setHitPoints(unsigned int hitPoints);
+		void			setEnergyPoints(unsigned int energyPoints);
+		void			setAttackDamage(unsigned int attackDamage);
+
+		// Member functions required by the subject
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 };
+
+std::ostream&	operator<<(std::ostream& os, const ClapTrap& right);
 
 #endif

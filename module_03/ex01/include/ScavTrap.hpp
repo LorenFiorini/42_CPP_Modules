@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 05:04:59 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:40:33 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 22:29:58 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@
 
 class ScavTrap : public ClapTrap
 {
-	private:
-		ScavTrap();										// Default constructor
-
 	public:
-		ScavTrap(std::string name);						// Constructor with name
+		// Orthodox Canonical Class Form
+		ScavTrap(void);									// Default constructor
+		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &src);					// Copy constructor
-		~ScavTrap();									// Destructor
 		ScavTrap&	operator=(const ScavTrap &right);	// Copy assignment operator
+		~ScavTrap(void);								// Destructor
 
-		void		attack(const std::string& target);
-		void		guardGate();
+		// Member function required by the subject
+		void		guardGate(void);
+		// Overriden member function
+		void		attack(std::string const & target);
 };
+
+std::ostream&	operator<<(std::ostream& os, const ScavTrap& right);
 
 #endif

@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 10:07:52 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/29 10:09:39 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/10/29 22:56:29 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= RepetitiveWork
+NAME	= AndOpen
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98

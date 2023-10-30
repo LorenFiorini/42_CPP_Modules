@@ -6,40 +6,70 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:44:12 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/20 06:49:20 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/29 23:16:07 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+/**
+ * @brief Constructors & Destructor 
+ */
+
+FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "FragTrap " << this->_name << " created" << std::endl;
+	this->_name			= "UnnamedFragTrap";
 	this->_hitPoints	= 100;
 	this->_energyPoints	= 100;
 	this->_attackDamage	= 30;
+	std::cout << "  FragTrap - default constructor for : " << this->_name << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap " << this->_name << " copied" << std::endl;
-}
-
-FragTrap::~FragTrap()
-{
-	std::cout << "FragTrap " << this->_name << " destroyed" << std::endl;
+	this->_name			= name;
+	this->_hitPoints	= 100;
+	this->_energyPoints	= 100;
+	this->_attackDamage	= 30;
+	std::cout << "  FragTrap - constructor for : " << this->_name << std::endl;
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap &right)
 {
-	this->_name			= right._name;
-	this->_hitPoints	= right._hitPoints;
-	this->_energyPoints	= right._energyPoints;
-	this->_attackDamage	= right._attackDamage;
+	ClapTrap::operator=(right);
+	std::cout << "  FragTrap - copy assignment operator for : " << this->_name << std::endl;
 	return (*this);
 }
 
-void		FragTrap::highFivesGuys(void)
+FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src)
 {
-	std::cout << "FragTrap " << this->_name << " wants to high five" << std::endl;
+	*this = src;
+	std::cout << "  FragTrap - copy constructor for : " << this->_name << std::endl;
+}
+
+FragTrap::~FragTrap(void)
+{
+	std::cout << "  FragTrap - destructor for : " << this->_name << std::endl;
+}
+
+/**
+ * @brief Member functions required by the subject
+ */
+
+void	FragTrap::highFivesGuys(void)
+{
+	std::cout << "  FragTrap - " << this->_name << " wants to high five you!" << std::endl;
+}
+
+/**
+ * @brief Operator overload
+ */
+
+std::ostream&	operator<<(std::ostream& os, const FragTrap& right)
+{
+	os << "  FragTrap - " << right.getName() << std::endl;
+	os << "    Hit Points: " << right.getHitPoints() << std::endl;
+	os << "    Energy Points: " << right.getEnergyPoints() << std::endl;
+	os << "    Attack Damage: " << right.getAttackDamage() << std::endl;
+	return (os);
 }
