@@ -6,42 +6,41 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:41:46 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/30 04:01:15 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/10/30 06:07:54 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
-int	main(void)
+int main(void)
 {
-	const Animal		*meta		= new Animal();
-	const Animal		*j			= new Dog();
-	const Animal		*i			= new Cat();
-	const WrongAnimal	*wrong		= new WrongAnimal();
-	const WrongAnimal	*wrongCat	= new WrongCat();
+    Dog basic;
+    {
+        Dog tmp = basic;
+    }
 
-	std::cout	<< std::endl;
-	std::cout	<< j->getType()			<< std::endl;
-	std::cout	<< i->getType()			<< std::endl;
-	std::cout	<< wrong->getType()		<< std::endl;
-	std::cout	<< wrongCat->getType()	<< std::endl;
-	
-	std::cout	<< std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	wrong->makeSound();
-	wrongCat->makeSound();
-	
-	std::cout	<< std::endl;
-	delete meta;
-	delete j;
-	delete i;
-	delete wrong;
-	delete wrongCat;
-	return (0);
+    int n = 4;
+    Animal* animals[n];
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << i << ": ";
+        if (i % 2 == 0)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+        std::cout << std::endl;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << i << ": ";
+        delete animals[i];
+    }
+    
+    std::cout << std::endl;
+    // Animal test;
+    
+    return (0);
 }

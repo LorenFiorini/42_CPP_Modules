@@ -5,42 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 23:41:46 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/30 05:51:00 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/30 06:22:22 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/30 06:34:01 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int main(void)
 {
-    Dog basic;
-    {
-        Dog tmp = basic;
-    }
-
-    int n = 4;
-    Animal* animals[n];
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << i << ": ";
-        if (i % 2 == 0)
-            animals[i] = new Dog();
-        else
-            animals[i] = new Cat();
-        std::cout << std::endl;
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << i << ": ";
-        delete animals[i];
-    }
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
     
-    std::cout << std::endl;
-    const Animal* meta  = new Animal();
-    delete meta;
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    
+    ICharacter* bob = new Character("bob");
+    
+    me->use(0, *bob);
+    me->use(1, *bob);
+    
+    delete bob;
+    delete me;
+    delete src;
+    
     return (0);
 }

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 00:13:28 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/30 05:52:29 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/30 06:20:06 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/30 06:45:00 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
 # include <iostream>
-# include "Animal.hpp"
+# include <string>
+# include "AMateria.hpp"
 
-class Dog : public Animal
+class IMateriaSource
 {
-	public:
-		Dog(void);								// Default constructor
-		Dog		&operator=(const Dog &right);	// Assignation operator
-		Dog(const Dog &src);					// Copy constructor
-		~Dog();									// Destructor
-
-		void	makeSound(void) const;
+    public:
+        virtual ~IMateriaSource() {}
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

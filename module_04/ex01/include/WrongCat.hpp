@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 00:13:28 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/10/30 05:52:29 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/10/21 00:17:22 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/10/21 00:24:21 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
-# include "Animal.hpp"
+# include <string>
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
-		Dog(void);								// Default constructor
-		Dog		&operator=(const Dog &right);	// Assignation operator
-		Dog(const Dog &src);					// Copy constructor
-		~Dog();									// Destructor
+		WrongCat(void);									// Default constructor
+		WrongCat(const WrongCat &src);					// Copy constructor
+		virtual		~WrongCat();						// Virtual Destructor (to allow delete of derived class)
+		WrongCat	&operator=(const WrongCat &copy);	// Assignation operator
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
 };
 
 #endif
