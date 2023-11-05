@@ -74,5 +74,8 @@
 	"42header.email": "lfiorini@student.42heilbronn.de",
 	"42header.username": "lfiorini",
 	"editor.tabSize": 4,
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true
 }
