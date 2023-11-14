@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:45 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/11/05 23:44:34 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/11/14 06:26:45 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 }
 
 /* Copy constructor */
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade) { }
+// Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade) { }
 
 /* Destructor */
 Bureaucrat::~Bureaucrat(void) { }
 
 /* = Operator overload */
-Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &right) : _name(right._name), _grade(right._grade)
-{
-	return (*this);
-}
+// Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &right) : _name(right._name), _grade(right._grade)
+// {
+// 	return (*this);
+// }
 
 /* Getters */
 std::string	Bureaucrat::getName(void) const

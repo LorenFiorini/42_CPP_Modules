@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 05:23:54 by lfiorini          #+#    #+#              #
-#    Updated: 2023/10/30 05:38:05 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/11/14 06:19:59 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ FILES	=	main \
 			WrongAnimal \
 			WrongCat \
 			Brain
-			
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))
@@ -44,10 +43,10 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJ_D)
-			
+
 fclean:		clean
 			$(RM) $(NAME)
-			
+
 re:			fclean all
 
 .PHONY: all clean fclean re
