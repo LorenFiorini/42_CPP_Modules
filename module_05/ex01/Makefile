@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 22:16:32 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/08 09:23:15 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/08 12:07:20 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRC_D	= ./sources
 OBJ_D	= ./objects
 INC_D	= ./include
 
-FILES	=
+FILES	= main \
+		  Bureaucrat \
+		  Form
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 10:31:34 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:11:13 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ Form &Form::operator=(const Form &rhs)
 
 /* Destructor */
 Form::~Form(void) { }
-
 
 
 /* Member Functions */
@@ -77,9 +76,9 @@ const char	*Form::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
-void	Form::beSigned(Bureaucrat const &b)
+void	Form::beSigned(Bureaucrat const &bureaucrat)
 {
-	if (b.getGrade() <= _gradeToSign)
+	if (bureaucrat.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
 		throw GradeTooLowException();
@@ -87,6 +86,12 @@ void	Form::beSigned(Bureaucrat const &b)
 
 std::ostream	&operator<<(std::ostream &o, const Form &form)
 {
-	o << "Form " << form.getName() << " is " << (form.getIsSigned() ? "" : "not ") << "signed, grade to sign is " << form.getGradeToSign() << " and grade to execute is " << form.getGradeToExecute() << std::endl;
+	o << "Form " << form.getName() << std::endl;
+	if (form.getIsSigned())
+		o << " Status: signed" << std::endl;
+	else
+		o << " Status: not signed" << std::endl;
+	o << " Grade to sign: " << form.getGradeToSign() << std::endl;
+	o << " Grade to execute: " << form.getGradeToExecute() << std::endl;
 	return (o);
 }

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:37 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 09:08:00 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:09:06 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 
 class Bureaucrat
 {
@@ -42,7 +43,6 @@ class Bureaucrat
 				const char	*what() const throw();
 		};
 
-		// Todo: increment and decrement
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 };

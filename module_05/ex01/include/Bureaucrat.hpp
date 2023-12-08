@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:37 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 10:25:52 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:08:57 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
