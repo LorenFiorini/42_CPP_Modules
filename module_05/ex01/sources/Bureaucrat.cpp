@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:45 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 10:08:11 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:07:47 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int			Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
+
 /* Exceptions */
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -74,6 +75,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
 }
+
 
 /* Increment and decrement */
 void	Bureaucrat::incrementGrade(void)
