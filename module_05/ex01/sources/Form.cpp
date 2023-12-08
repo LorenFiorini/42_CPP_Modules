@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 10:16:49 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:31:34 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,23 @@ int const			&Form::getGradeToExecute(void) const
 }
 
 /* Exceptions */
-const char			*Form::GradeTooHighException::what() const throw()
+const char	*Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high");
 }
 
-const char			*Form::GradeTooLowException::what() const throw()
+const char	*Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
 }
 
-
+void	Form::beSigned(Bureaucrat const &b)
+{
+	if (b.getGrade() <= _gradeToSign)
+		_isSigned = true;
+	else
+		throw GradeTooLowException();
+}
 
 std::ostream	&operator<<(std::ostream &o, const Form &form)
 {

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:45 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 10:07:47 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:30:19 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	Bureaucrat::incrementGrade(void)
 		this->_grade--;
 	}
 	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
 
@@ -98,6 +98,17 @@ void	Bureaucrat::decrementGrade(void)
 		this->_grade++;
 	}
 	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(Form &form) const
+{
+	try {
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << this->_name << "  couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }

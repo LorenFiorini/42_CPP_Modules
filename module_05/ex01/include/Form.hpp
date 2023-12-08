@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:49 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 09:28:38 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:30:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Form
 		int const			&getGradeToSign(void) const;
 		int const			&getGradeToExecute(void) const;
 
-		void	beSigned(Bureaucrat const &b);
+		void	beSigned(Bureaucrat const &bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
