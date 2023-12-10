@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:49 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/10 08:47:00 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:45:56 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Bureaucrat;
 
 class AForm
 {
-
 	private:
 		std::string const	_name;
 		int	const			_gradeToExecute;
