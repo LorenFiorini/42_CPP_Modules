@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:37 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/08 12:08:57 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:20:53 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -49,7 +49,8 @@ class Bureaucrat
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 
-		void		signForm(Form &form) const;
+		void		signForm(AForm &form) const;
+		void		executeForm(AForm const &form) const;
 };
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &src);
