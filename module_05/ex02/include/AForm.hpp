@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:49 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/10 08:39:02 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/10 08:47:00 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <exception>
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 
 	private:
@@ -28,20 +28,29 @@ class Form
 		int	const			_gradeToSign;
 		bool				_isSigned;
 
+		AForm(void);
+		AForm &operator=(const AForm &rhs);
+
+	protected:
+		void	checkRequirements(Bureaucrat const &bureaucrat) const;
+
 	public:
-		Form(void);
-		Form(std::string const &name, int gradeToSign, int gradeToExecute);
-		Form(const Form &src);
-		Form &operator=(const Form &rhs);
-		~Form(void);
+		AForm(std::string const &name, int gradeToSign, int gradeToExecute);
+		AForm(const AForm &src);
+		virtual ~AForm(void);
 
-		std::string const	&getName(void) const;
-		bool const			&getIsSigned(void) const;
-		int const			&getGradeToSign(void) const;
-		int const			&getGradeToExecute(void) const;
+		std::string	getName(void) const;
+		bool		getIsSigned(void) const;
+		int			getGradeToSign(void) const;
+		int			getGradeToExecute(void) const;
 
+		// Member functions
 		void	beSigned(Bureaucrat const &bureaucrat);
 
+		// Pure virtual functions
+		virtual void	execute(Bureaucrat const &executor) const = 0;
+
+		// Exceptions
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -54,8 +63,14 @@ class Form
 				const char	*what() const throw();
 		};
 
+		class UnsignedFormException : public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
 };
 
-std::ostream	&operator<<(std::ostream &o, const Form &form);
+std::ostream	&operator<<(std::ostream &o, const AForm &form);
 
 #endif
