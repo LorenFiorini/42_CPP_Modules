@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:56:37 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:50:29 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:48:32 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# define EASYFIND_HPP
+
 #include <iostream>
-#include <vector>
-#include <list>
+#include <algorithm>
+#include <stdexcept>
 
-#include "easyfind.hpp"
-
-int main(void)
+template <typename Container>
+typename Container::iterator easyfind(Container &container, int num)
 {
-	std::vector<int> vec;
-	std::list<int> lst;
+	typename Container::iterator it;
 
-	for (int i = -5; i < 5; i++)
-	{
-		vec.push_back(i);
-		lst.push_back(i);
-	}
-	try
-	{
-		std::cout << easyfind(vec, -1) << std::endl;
-		std::cout << easyfind(lst, -1) << std::endl;
-		std::cout << easyfind(vec, 5) << std::endl;
-		std::cout << easyfind(lst, 5) << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
+	it = std::find(container.begin(), container.end(), num);
+
+	if (it == container.end())
+		throw std::runtime_error("Not found");
+	return (it);
 }
+
+#endif
