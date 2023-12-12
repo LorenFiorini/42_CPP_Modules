@@ -6,10 +6,11 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:56:37 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:48:32 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:10:36 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
 #include <iostream>
