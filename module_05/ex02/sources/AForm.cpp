@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/10 18:24:10 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:32:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,18 @@ const char	*AForm::GradeTooLowException::what() const throw()
 
 void	AForm::beSigned(Bureaucrat const &bureaucrat)
 {
-	if (bureaucrat.getGrade() <= _gradeToSign)
-		_isSigned = true;
+	if (bureaucrat.getGrade() <= this->_gradeToSign)
+		this->_isSigned = true;
 	else
 		throw GradeTooLowException();
+}
+
+void	AForm::checkRequirements(Bureaucrat const &bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->_gradeToExecute)
+		throw GradeTooLowException();
+	if (!this->_isSigned)
+		throw UnsignedFormException();
 }
 
 std::ostream	&operator<<(std::ostream &o, const AForm &form)

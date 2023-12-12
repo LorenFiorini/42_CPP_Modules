@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:31:34 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/10 18:08:27 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:47:15 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 class ShrubberyCreationForm : public AForm
 {
-	std::string		_target;
-	ShrubberyCreationForm(void);
+	private:
+		std::string	_target;
+		void		christmasTree(std::ostream &ofs) const;
+
+		ShrubberyCreationForm(void);
 
 	public:
 		ShrubberyCreationForm(std::string target);
@@ -29,7 +32,18 @@ class ShrubberyCreationForm : public AForm
 
 		void	execute(Bureaucrat const &executor) const;
 
+		std::string	getTarget(void) const;
+		void		setTarget(std::string target);
+
+		class FileOpenErrorException : public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
 };
+
+std::ostream	&operator<<(std::ostream &out, ShrubberyCreationForm const &src);
 
 #endif
 
