@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:25:43 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:32:48 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:50:47 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ AForm::~AForm(void) { }
 
 /* Getters */
 
-std::string const	&AForm::getName(void) const
+std::string	AForm::getName(void) const
 {
 	return (this->_name);
 }
 
-bool const			&AForm::getIsSigned(void) const
+bool		AForm::getIsSigned(void) const
 {
 	return (this->_isSigned);
 }
 
-int const			&AForm::getGradeToSign(void) const
+int			AForm::getGradeToSign(void) const
 {
 	return (this->_gradeToSign);
 }
 
-int const			&AForm::getGradeToExecute(void) const
+int			AForm::getGradeToExecute(void) const
 {
 	return (this->_gradeToExecute);
 }
@@ -74,6 +74,11 @@ const char	*AForm::GradeTooHighException::what() const throw()
 const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
+}
+
+const char	*AForm::UnsignedFormException::what() const throw()
+{
+	return ("Form is not signed");
 }
 
 void	AForm::beSigned(Bureaucrat const &bureaucrat)

@@ -6,10 +6,11 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:45 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:13:18 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:30:53 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 /* Orthodox Canonical Class Form */
@@ -102,7 +103,7 @@ void	Bureaucrat::decrementGrade(void)
 	}
 }
 
-void	Bureaucrat::signForm(Form &form) const
+void	Bureaucrat::signForm(AForm &form) const
 {
 	try {
 		form.beSigned(*this);
@@ -113,7 +114,7 @@ void	Bureaucrat::signForm(Form &form) const
 	}
 }
 
-void	Bureaucrat::executeForm(Form const &form) const
+void	Bureaucrat::executeForm(AForm const &form) const
 {
 	try {
 		form.execute(*this);

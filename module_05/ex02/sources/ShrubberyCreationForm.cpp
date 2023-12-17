@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:59 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:45:29 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:16:21 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	try {
 		checkRequirements(executor);
-		std::ofstream	ofs(this->_target + "_shrubbery");
-		if (!ofs.is_open())
-			throw FileOpenErrorException();
-		christmasTree(ofs);
-		ofs.close();
+		std::string		filename = getTarget() + "_shrubbery";
+		std::fstream file(filename.c_str(), std::fstream::out | std::fstream::trunc);
+		if (file.is_open()) {
+			christmasTree(file);
+			file.close();
+		} else {
+			std::cerr << "Error opening file" << std::endl;
+		}
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -63,11 +66,6 @@ std::ostream	&operator<<(std::ostream &out, ShrubberyCreationForm const &src)
 std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return (this->_target);
-}
-
-void	ShrubberyCreationForm::setTarget(std::string target)
-{
-	this->_target = target;
 }
 
 void	ShrubberyCreationForm::christmasTree(std::ostream &ofs) const
@@ -85,10 +83,5 @@ void	ShrubberyCreationForm::christmasTree(std::ostream &ofs) const
 	<< " **O#**O**#*O**#***" << std::endl
 	<< "       | o  |" << std::endl
 	<< "       |  o |" << std::endl;
-}
-
-std::string	ShrubberyCreationForm::FileOpenErrorException::what() const throw()
-{
-	return ("Error: FileOpenErrorException");
 }
 

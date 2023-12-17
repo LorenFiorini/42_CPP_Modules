@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 22:17:57 by lfiorini          #+#    #+#              #
-#    Updated: 2023/11/05 22:18:25 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/12 22:03:27 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,12 @@ SRC_D	= ./sources
 OBJ_D	= ./objects
 INC_D	= ./include
 
-FILES	=
+FILES	= AForm \
+		Bureaucrat \
+		PresidentialPardonForm \
+		RobotomyRequestForm \
+		ShrubberyCreationForm \
+		main
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))

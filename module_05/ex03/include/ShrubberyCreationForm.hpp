@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:31:34 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:47:15 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:49:50 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
-# include <iostream>
+# include "Bureaucrat.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
@@ -22,24 +22,16 @@ class ShrubberyCreationForm : public AForm
 		std::string	_target;
 		void		christmasTree(std::ostream &ofs) const;
 
-		ShrubberyCreationForm(void);
-
 	public:
+		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &src);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &op);
 		~ShrubberyCreationForm(void);
 
-		void	execute(Bureaucrat const &executor) const;
+		virtual void	execute(Bureaucrat const &executor) const;
 
 		std::string	getTarget(void) const;
-		void		setTarget(std::string target);
-
-		class FileOpenErrorException : public std::exception
-		{
-			public:
-				const char	*what() const throw();
-		};
 
 };
 

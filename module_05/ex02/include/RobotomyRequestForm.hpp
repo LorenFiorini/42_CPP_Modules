@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:31:29 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:25:18 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:49:53 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
 class RobotomyRequestForm : public AForm
 {
@@ -27,8 +28,9 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &op);
 		~RobotomyRequestForm(void);
 
-		void	execute(Bureaucrat const &executor) const;
+		virtual void	execute(Bureaucrat const &executor) const;
 
+		std::string	getTarget(void) const;
 };
 
 #endif

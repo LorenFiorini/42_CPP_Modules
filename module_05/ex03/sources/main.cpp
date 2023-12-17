@@ -6,52 +6,85 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:19:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:13:26 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:46:15 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main(void)
 {
 	Bureaucrat	*a;
 	Bureaucrat	*b;
-	Form		*f;
-
+	
+	// Creating a Bureaucrats
 	try {
-		std::cout << "Creating a bureaucrat with grade 2 ..." << std::endl;
-		a = new Bureaucrat("Anna", 2);
-		std::cout << a << std::endl;
-		std::cout << "Incrementing grade ..." << std::endl;
-		a->incrementGrade();
-		std::cout << a << std::endl;
+		std::cout << "Creating a Bureaucrat with grade 1" << std::endl;
+		a = new Bureaucrat("Bureaucrat 1", 1);
+		std::cout << *a << std::endl;
+		std::cout << "Creating a Bureaucrat with grade 150" << std::endl;
+		b = new Bureaucrat("Bureaucrat 2", 150);
+		std::cout << *b << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
+		return (1);
 	}
+	
+	// Shrubbery Creation Form
 	try {
-		std::cout << "Creating a bureaucrat with grade 149 ..." << std::endl;
-		b = new Bureaucrat("Bob", 149);
-		std::cout << b << std::endl;
-		std::cout << b << std::endl;
-		std::cout << "Decrementing grade ..." << std::endl;
-		b->decrementGrade();
-		std::cout << b << std::endl;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	try {
-		std::cout << "Creating a form ..." << std::endl;
-		f = new Form("Form", 75, 75);
-		std::cout << (*f) << std::endl;
-		std::cout << "Signing form with Anna ..." << std::endl;
-		a->signForm(*f);
-		std::cout << (*f) << std::endl;
-		std::cout << "Signing form with Bob ..." << std::endl;
-		b->signForm(*f);
-		std::cout << (*f) << std::endl;
+		std::cout << "Creating a Shrubbery Creation Form with target \"home\"" << std::endl;
+		ShrubberyCreationForm shrubbery("home");
+		std::cout << shrubbery << std::endl;
+		std::cout << "Signing the form with Bureaucrat 1" << std::endl;
+		a->signForm(shrubbery);
+		std::cout << shrubbery << std::endl;
+		std::cout << "Executing the form with Bureaucrat 1" << std::endl;
+		a->executeForm(shrubbery);
+		std::cout << "Executing the form with Bureaucrat 2" << std::endl;
+		b->executeForm(shrubbery);
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 
+	// Robotomy Request Form
+	try {
+		std::cout << "Creating a Robotomy Request Form with target \"home\"" << std::endl;
+		RobotomyRequestForm robotomy("home");
+		std::cout << robotomy << std::endl;
+		std::cout << "Signing the form with Bureaucrat 1" << std::endl;
+		a->signForm(robotomy);
+		std::cout << robotomy << std::endl;
+		std::cout << "Executing the form with Bureaucrat 1" << std::endl;
+		a->executeForm(robotomy);
+		std::cout << "Executing the form with Bureaucrat 2" << std::endl;
+		b->executeForm(robotomy);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	// Presidential Pardon Form
+	try {
+		std::cout << "Creating a Presidential Pardon Form with target \"home\"" << std::endl;
+		PresidentialPardonForm presidential("home");
+		std::cout << presidential << std::endl;
+		std::cout << "Signing the form with Bureaucrat 1" << std::endl;
+		a->signForm(presidential);
+		std::cout << presidential << std::endl;
+		std::cout << "Executing the form with Bureaucrat 1" << std::endl;
+		a->executeForm(presidential);
+		std::cout << "Executing the form with Bureaucrat 2" << std::endl;
+		b->executeForm(presidential);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	
+	// Deleting Bureaucrats
+	delete a;
+	delete b;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:54 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/12 14:36:52 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/15 00:12:17 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,3 @@ std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (this->_target);
 }
-
-void	RobotomyRequestForm::setTarget(std::string target)
-{
-	this->_target = target;
-}
-
