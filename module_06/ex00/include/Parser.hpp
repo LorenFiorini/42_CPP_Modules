@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 00:35:49 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/18 02:42:05 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 02:57:16 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <limits>
+# include <iomanip>
 
 enum	eType
 {
@@ -49,12 +51,12 @@ class Parser
 		static eType		_type;
 
 		static void		parse_input(std::string &str);
-		static void		setInput(std::string &str);
-		static void		setType(std::string &str);
+		static void		setInput(std::string str);
+		static void		setType(std::string str);
 		static void		display_conversion(void);
 
 
-		class InvalidStringException : public std::exception
+		class InvalidInputException : public std::exception
 		{
 			virtual const char *what() const throw();
 		};

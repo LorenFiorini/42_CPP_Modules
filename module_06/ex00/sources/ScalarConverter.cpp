@@ -6,29 +6,30 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 00:13:23 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/18 02:21:53 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 02:57:34 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScalarConverter.hpp"
 
-ScalerConverter::ScalerConverter(void) {
+ScalarConverter::ScalarConverter(void) {
 }
 
-ScalerConverter::ScalerConverter(ScalerConverter const &src) {
+ScalarConverter::ScalarConverter(ScalarConverter const &src) {
 	(void)src;
 }
 
-ScalerConverter &ScalerConverter::operator=(ScalerConverter const &rhs) {
+ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs) {
 	if (this != &rhs) {
 		(void)rhs;
 	}
 	return (*this);
 }
 
-ScalerConverter::~ScalerConverter(void) {
+ScalarConverter::~ScalarConverter(void) {
 }
 
-void	ScalerConverter::convert(std::string str) {
+void	ScalarConverter::convert(std::string str) {
 	try {
 		Parser::parse_input(str);
 		Parser::display_conversion();

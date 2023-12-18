@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 23:55:45 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/15 02:10:07 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/18 02:58:08 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex00
+NAME	= converter
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,9 @@ SRC_D	= ./sources
 OBJ_D	= ./objects
 INC_D	= ./include
 
-FILES	= main
+FILES	= main \
+		  Parser \
+		  ScalarConverter
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))
