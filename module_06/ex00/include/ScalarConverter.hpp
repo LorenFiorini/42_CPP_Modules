@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 23:56:25 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/18 01:11:41 by lfiorini         ###   ########.fr       */
+/*   Created: 2023/12/18 00:13:20 by lfiorini          #+#    #+#             */
+/*   Updated: 2023/12/18 01:09:51 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
-int main(int argc, char **argv)
+enum eType {
+	ERROR,
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDOLITERAL
+};
+
+
+
+class ScalarConverter
 {
-	if (argc == 2) {
-		try	{
-			std::string str = argv[1];
-			ScalerConverter::convert(str);
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << '\n';
-			return (1);
-		}
-	} else {
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
+	public:
+		static void	convert(std::string src);
 
-	return (0);
-}
+	private:
+		ScalarConverter(void);
+		ScalarConverter(const ScalarConverter &src);
+		ScalarConverter &operator=(const ScalarConverter &op);
+		~ScalarConverter(void);
+
+};
+
+#endif
