@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:39:39 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:20:01 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 03:13:51 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 # define SERIALIZER_HPP
 
 # include <iostream>
-# include "Data.hpp"
+
+struct Data {
+	std::string	str;
+};
 
 class Serializer
 {
-	public:
+	private:
 		Serializer(void);
 		Serializer(Serializer const &src);
 		Serializer &operator=(Serializer const &rhs);
 		~Serializer(void);
 
-		uintptr_t serialize(Data *ptr);
-		Data *deserialize(uintptr_t raw);
+	public:
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
 };
 
 #endif

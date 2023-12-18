@@ -6,14 +6,17 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:41:54 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 14:51:17 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 03:20:37 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef BASE_HPP
+# define BASE_HPP
 
 class Base
 {
 	public:
-		virtual ~Base(void) {};
+		virtual ~Base(void);
 };
+
+#endif

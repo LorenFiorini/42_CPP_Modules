@@ -6,27 +6,27 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:40:00 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:21:05 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 03:05:17 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-Serializer::Serializer(void) : _raw(0)
+Serializer::Serializer(void) {
+}
 
-Serializer::Serializer(Serializer const &src)
-{
+Serializer::Serializer(Serializer const &src) {
 	(void)src;
 }
 
-Serializer &Serializer::operator=(Serializer const &rhs)
-{
+Serializer &Serializer::operator=(Serializer const &rhs) {
 	if (this != &rhs)
 		(void)rhs;
 	return (*this);
 }
 
-Serializer::~Serializer(void) { }
+Serializer::~Serializer(void) {
+}
 
 
 uintptr_t Serializer::serialize(Data *ptr)

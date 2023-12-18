@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:39:54 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/15 02:14:48 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 03:30:57 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,16 @@
 
 int main(void)
 {
-	// Serialize and deserialize a stack variable
-	Serializer	s;
-	Data		stk;
-	Data		*stkPtr;
-	uintptr_t	stkAddr;
-	Data		*stkPtrDes;
+	Data	data;
+	data.str = "Hello World!";
 
-	stk.setValue(42);
-	stkPtr		= &stk;
-	stkAddr		= s.serialize(stkPtr);
-	stkPtrDes	= s.deserialize(stkAddr);
+	uintptr_t raw = Serializer::serialize(&data);
+	Data *ptr = Serializer::deserialize(raw);
 
-	std::cout << "stkPtr->getValue()" << stkPtr->getValue() << std::endl;
-	std::cout << "stkAddr: " << stkAddr << std::endl;
-	std::cout << "stkPtrDesvalue: " << stkPtrDes->getValue() << std::endl;
-
-	// Serialize and deserialize a heap variable
-	Data		*heap;
-	uintptr_t	heapAddr;
-	Data		*heapDes;
-
-	heap		= new Data;
-	heap->setValue(21);
-	heapAddr	= s.serialize(heap);
-	heapDes		= s.deserialize(heapAddr);
-
-	std::cout << "heap->value: " << heap->getValue() << std::endl;
-	std::cout << "heapAddr: " << heapAddr << std::endl;
-	std::cout << "heapDes->value: " << heapDes->getValue() << std::endl;
-
-	delete heap;
+	std::cout << ptr->str << std::endl;
+	std::cout << &data << std::endl;
+	std::cout << ptr << std::endl;
+	std::cout << raw << std::endl;
+	
 	return (0);
 }

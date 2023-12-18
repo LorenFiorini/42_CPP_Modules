@@ -6,11 +6,11 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 23:55:45 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/17 19:30:36 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/18 03:14:36 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex01
+NAME	= serialize
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -21,7 +21,6 @@ OBJ_D	= ./objects
 INC_D	= ./include
 
 FILES	= main \
-		Data \
 		Serializer
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
