@@ -6,13 +6,13 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:52:01 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/04 18:58:36 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:42:57 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <iostream>
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
+# include <iostream>
 
 template <typename T>
 void	swap(T &a, T &b)
@@ -39,3 +39,5 @@ const T	&max(const T &a, const T &b)
 		return (a);
 	return (b);
 }
+
+#endif

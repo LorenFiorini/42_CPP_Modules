@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:50:35 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/04 19:04:17 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:10:57 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 #include <iostream>
 
 template <typename T>
-Array<T>::Array(void) : _array(NULL), _size(0) {}
+Array<T>::Array(void)
+	: _array(NULL), _size(0) { }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
+Array<T>::Array(unsigned int n)
+	: _array(new T[n]), _size(n) { }
 
 template <typename T>
-Array<T>::Array(Array<T> const &src) : _array(new T[src._size]), _size(src._size)
+Array<T>::Array(Array<T> const &src)
+	: _array(new T[src._size]), _size(src._size)
 {
 	for (unsigned int i = 0; i < src._size; i++) {
 		this->_array[i] = src._array[i];
@@ -80,6 +83,12 @@ template <typename T>
 T *Array<T>::getAddress() const
 {
 	return (this->_array);
+}
+
+template <typename T>
+unsigned int Array<T>::size() const
+{
+	return (this->_size);
 }
 
 template <typename T>
