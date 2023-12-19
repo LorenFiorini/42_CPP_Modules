@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:49:14 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/18 19:01:45 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/19 01:03:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,21 @@
 
 int main(void)
 {
-	int	*array = new int[5];
-
-	::iter(array, 5, print<int>);
-	std::cout << std::endl;
-	::iter(array, 5, increment<int>);
-	::iter(array, 5, print<int>);
-	std::cout << std::endl;
-	::iter(array, 5, decrement<int>);
-	::iter(array, 5, print<int>);
+	int int_arr[] = {5, 4, 3, 2, 1};
+	::iter(int_arr, 5, my_print<int>);
 	std::cout << std::endl;
 
-	// char array2[] = {'a', 'b', 'c', 'd', 'e'};
+	float float_arr[] = {5.5, 4.4, 3.3, 2.2, 1.1};
+	::iter(float_arr, 5, my_print<float>);
+	std::cout << std::endl;
 
-	// ::iter(array2, 5, print<char>);
-	// std::cout << std::endl;
-	// ::iter(array2, 5, increment<char>);
-	// ::iter(array2, 5, print<char>);
-	// std::cout << std::endl;
-	// ::iter(array2, 5, decrement<char>);
-	// ::iter(array2, 5, print<char>);
-	// std::cout << std::endl;
-	// ::iter(array2, 5, decrement<char>);
-	// ::iter(array2, 5, print<char>);
-	// std::cout << std::endl;
-	// ::iter(array2, 5, increment<char>);
-	// ::iter(array2, 5, print<char>);
-	// std::cout << std::endl;
+	char char_arr[] = {'a', 'b', 'c', 'd', 'e'};
+	::iter(char_arr, 5, my_print<char>);
+	std::cout << std::endl;
 
-	// float array3[] = {0.1f, 1.1f, 2.1f, 3.1f, 4.1f};
-	// ::iter(array3, 5, print<float>);
-	// std::cout << std::endl;
-	// ::iter(array3, 5, increment<float>);
-	// ::iter(array3, 5, print<float>);
-	// std::cout << std::endl;
-	// ::iter(array3, 5, decrement<float>);
-	// ::iter(array3, 5, print<float>);
-
+	std::string string_arr[] = {"Hello", "World", "!"};
+	::iter(string_arr, 3, my_print<std::string>);
+	std::cout << std::endl;
+	
 	return (0);
 }
