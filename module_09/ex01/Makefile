@@ -5,12 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/05 23:56:03 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/19 04:34:54 by lfiorini         ###   ########.fr        #
+#    Created: 2023/12/19 04:32:52 by lfiorini          #+#    #+#              #
+#    Updated: 2023/12/19 04:35:28 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= btc
+
+NAME	= RPN
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
