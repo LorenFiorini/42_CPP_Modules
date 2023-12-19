@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:52:06 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:59:03 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/19 08:28:16 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 /* Orthodox Canonical Class Form */
 
-Span::Span(void) : _size(0) { }
+Span::Span(void)
+	: _capacity(0), _size(0), _vector(std::vector<int>()) { }
 
-Span::Span(unsigned int size) : _size(size) { }
+Span::Span(unsigned int n)
+	: _capacity(n), _size(0), _vector(std::vector<int>()) { }
 
-
-Span::Span(const Span &src) : _container(std::vector<int>(src._container)), _size(src._size) { }
+Span::Span(const Span &src)
+	: _capacity(src._capacity), _size(src._size), _vector(src._vector) { }
 
 Span &Span::operator=(const Span &op)
 {
-	if (this != &op)
-	{
+	if (this != &op) {
+		this->_capacity = op._capacity;
 		this->_size = op._size;
-		this->_container = std::vector<int>(op._container);
+		this->_vector = op._vector;
 	}
 	return (*this);
 }
@@ -34,68 +36,62 @@ Span &Span::operator=(const Span &op)
 Span::~Span(void) { }
 
 
-/* Member Functions */
+/* Getters */
 
-void	Span::addNumber(int n)
-{
-	if (_container.size() < _size)
-		_container.push_back(n);
-	else
-		throw std::logic_error("the container is already full");
+unsigned int		Span::getCapacity(void) const {
+	return (this->_capacity);
 }
 
-void	Span::fillContainerRandom(void)
-{
-	unsigned int currSize = _container.size();
-	if (currSize == _size || _size == 0)
-		return ;
-
-	std::vector<int> tmp(_size - currSize);
-	std::vector<int>::iterator it;
-	for (it = tmp.begin(); it != tmp.end(); it++)
-		*it = rand() % 1000000;
-	_container.insert(_container.end(), tmp.begin(), it);
+unsigned int		Span::getSize(void) const {
+	return (this->_size);
 }
 
-void	Span::checkException(void)
-{
-	if (_container.size() == 0 || _container.size() == 1)
-		throw std::logic_error("Container size too small.");
+std::vector<int>	Span::getVector(void) const {
+	return (this->_vector);
 }
 
-unsigned int	Span::shortestSpan(void)
-{
-	checkException();
-	unsigned int shortest = std::numeric_limits<unsigned int>::max();
-	int prev;
 
-	std::sort(_container.begin(), _container.end());
-	std::vector<int>::iterator it;
+/* Member functions */
 
-	for (it = _container.begin(); it != _container.end()--;)
-	{
-		prev = *it;
-		unsigned int tmp = static_cast<unsigned int>(*(++it) - prev);
-		shortest = std::min(shortest, tmp);
+void				Span::addNumber(int n) {
+	if (this->_size >= this->_capacity) {
+		throw Span::FullException();
 	}
-	return (shortest);
+	this->_vector.push_back(n);
+	this->_size++;
 }
 
-unsigned int	Span::longestSpan(void)
-{
-	checkException();
-
-	int	minElement = *std::min_element(_container.begin(), _container.end());
-    int	maxElement = *std::max_element(_container.begin(), _container.end());
-	return (maxElement - minElement);
+unsigned int		Span::shortestSpan(void) {
+	if (this->_size <= 1) {
+		throw Span::NoSpanException();
+	}
+	std::vector<int>	tmp(this->_vector);
+	std::sort(tmp.begin(), tmp.end());
+	unsigned int		min = std::numeric_limits<unsigned int>::max();
+	for (unsigned int i = 0; i < this->_size - 1; i++) {
+		if (static_cast<unsigned int>(tmp[i + 1] - tmp[i]) < min) {
+			min = tmp[i + 1] - tmp[i];
+		}
+	}
+	return (min);
 }
 
-void	Span::printContainer(void)
-{
-	std::cout << "List of integers: " << std::endl;
-	std::vector<int>::iterator it;
+unsigned int		Span::longestSpan(void) {
+	if (this->_size <= 1) {
+		throw Span::NoSpanException();
+	}
+	std::vector<int>	tmp(this->_vector);
+	std::sort(tmp.begin(), tmp.end());
+	return (tmp[this->_size - 1] - tmp[0]);
+}
 
-	for (it = _container.begin(); it != _container.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
+
+/* Exceptions */
+
+const char *Span::FullException::what() const throw() {
+	return ("Span is full");
+}
+
+const char *Span::NoSpanException::what() const throw() {
+	return ("No span to find");
 }

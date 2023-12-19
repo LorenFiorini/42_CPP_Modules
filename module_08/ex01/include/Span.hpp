@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:52:12 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 15:55:35 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/19 08:31:10 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,45 @@
 # include <cstdlib>
 # include <limits>
 
+/** To-do
+ *  Implement a member function to add many numbers to your Span in one call.
+ */
+
 class Span
 {
-
 	private:
-		std::vector<int>	_container;
+		unsigned int		_capacity;
 		unsigned int		_size;
+		std::vector<int>	_vector;
 
 	public:
 		Span(void);
-		Span(unsigned int size);
+		Span(unsigned int n);
 		Span(const Span &src);
 		Span &operator=(const Span &op);
 		~Span(void);
 
+		/* Getters */
+		unsigned int		getCapacity(void) const;
+		unsigned int		getSize(void) const;
+		std::vector<int>	getVector(void) const;
+		
+		/* Member functions */
 		void			addNumber(int n);
-		void			fillContainerRandom(void);
-		template <typename Itr>
-		void			fillContainerRange(Itr first, Itr last);
-		void			checkException(void);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
-		void			printContainer(void);
 
+
+		/* Exceptions */
+		class FullException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+
+		class NoSpanException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
 };
-
-template <typename Itr>
-void	Span::fillContainerRange(Itr first, Itr last)
-{
-	if (std::distance(first, last) + _container.size() > _size)
-		throw std::logic_error("no efficient place to insert integers");
-	_container.insert(_container.end(), first, last);
-}
 
 #endif
