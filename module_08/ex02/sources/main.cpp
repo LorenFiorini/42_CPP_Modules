@@ -6,11 +6,11 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:02:35 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/19 08:32:47 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:36:10 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
+#include "../include/MutantStack.hpp"
 
 int main(void)
 {

@@ -6,19 +6,17 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:02:30 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/19 08:31:29 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:48:25 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#pragma once
 
 #include <iterator>
-
-# include <iostream>
-# include <stack>
-# include <vector>
-# include <list>
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <list>
 
 template < typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
@@ -39,13 +37,15 @@ class MutantStack : public std::stack<T, Container>
 		reverse_iterator rend();
 
 		typedef typename std::stack<T, Container>::container_type::const_iterator const_iterator;
-		const_iterator cbegin();
-		const_iterator cend();
+		const_iterator cbegin() const;
+		const_iterator cend() const;
 
 		typedef typename std::stack<T, Container>::container_type::const_reverse_iterator const_reverse_iterator;
-		const_reverse_iterator crbegin();
-		const_reverse_iterator crend();
+		const_reverse_iterator crbegin() const;
+		const_reverse_iterator crend() const;
 
 };
 
-#endif
+# include "../sources/MutantStack.tpp"
+
+

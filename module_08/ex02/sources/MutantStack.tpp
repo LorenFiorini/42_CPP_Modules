@@ -6,17 +6,20 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:09:13 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/11 16:13:43 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:58:41 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
+#pragma once
+#include "../include/MutantStack.hpp"
 
 template <class T, class Container>
-MutantStack<T, Container>::MutantStack(void) : std::stack<T, Container>() { }
+MutantStack<T, Container>::MutantStack(void)
+	: std::stack<T, Container>() { }
 
 template <class T, class Container>
-MutantStack<T, Container>::MutantStack(MutantStack<T, Container> const &src) : std::stack<T, Container>(src) { }
+MutantStack<T, Container>::MutantStack(MutantStack<T, Container> const &src)
+	: std::stack<T, Container>(src) { }
 
 template <class T, class Container>
 MutantStack<T, Container> &MutantStack<T, Container>::operator=(MutantStack<T, Container> const &rhs)

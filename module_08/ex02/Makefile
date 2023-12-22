@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 23:55:56 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/16 17:46:43 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/22 03:34:58 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ SRC_D	= ./sources
 OBJ_D	= ./objects
 INC_D	= ./include
 
-FILES	= main \
-		MutantStack
+FILES	= main
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))

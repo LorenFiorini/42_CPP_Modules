@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:52:12 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/19 08:31:10 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:31:08 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 # include <stdexcept>
 # include <iostream>
 # include <algorithm>
-# include <cstdlib>
 # include <limits>
-
-/** To-do
- *  Implement a member function to add many numbers to your Span in one call.
- */
+# include <iterator>
 
 class Span
 {
@@ -48,6 +44,8 @@ class Span
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
 
+    	void addRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
+
 
 		/* Exceptions */
 		class FullException : public std::exception {
@@ -59,6 +57,14 @@ class Span
 			public:
 				virtual const char *what() const throw();
 		};
+
+		class InvalidRangeException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
 };
+
+std::ostream &operator<<(std::ostream &os, const Span &sp);
+
 
 #endif

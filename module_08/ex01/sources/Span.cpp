@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:52:06 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/19 08:28:16 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:30:41 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,37 @@ unsigned int		Span::longestSpan(void) {
 	return (tmp[this->_size - 1] - tmp[0]);
 }
 
+void Span::addRange(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+	unsigned int space_needed = this->_vector.size() + std::distance(first, last);
+	if (space_needed > _capacity) {
+		throw Span::InvalidRangeException();
+	}
+	this->_vector.insert(this->_vector.end(), first, last);
+	this->_size = space_needed;
+}
+
 
 /* Exceptions */
 
 const char *Span::FullException::what() const throw() {
-	return ("Span is full");
+	return ("Exception: Span is full");
 }
 
 const char *Span::NoSpanException::what() const throw() {
-	return ("No span to find");
+	return ("Exception: No span to find");
+}
+
+const char *Span::InvalidRangeException::what() const throw() {
+	return ("Exception: Invalid range");
+}
+
+std::ostream &operator<<(std::ostream &os, const Span &sp) {
+	os << "Span capacity: " << sp.getCapacity() << std::endl;
+	os << "Span size: " << sp.getSize() << std::endl;
+	os << "Span vector: ";
+	for (unsigned int i = 0; i < sp.getSize(); i++) {
+		os << sp.getVector()[i] << " ";
+	}
+	os << std::endl;
+	return (os);
 }
