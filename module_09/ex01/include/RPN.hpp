@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:00 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/22 06:34:32 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 06:48:01 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <stack>
 
 class RPN
 {

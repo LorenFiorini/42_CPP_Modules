@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:56:41 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/22 06:31:41 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/22 06:42:04 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
         RPN rpn(argv[1]);
         std::cout << rpn << std::endl;
     } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
     return (0);
 }
