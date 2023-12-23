@@ -6,7 +6,7 @@
 #    By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 23:56:03 by lfiorini          #+#    #+#              #
-#    Updated: 2023/12/19 04:34:54 by lfiorini         ###   ########.fr        #
+#    Updated: 2023/12/23 04:11:47 by lfiorini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC_D	= ./sources
 OBJ_D	= ./objects
 INC_D	= ./include
 
-FILES	= main
+FILES	= main \
+		  BitcoinExchange
 
 SRCS	= $(addprefix $(SRC_D)/, $(addsuffix .cpp, $(FILES)))
 OBJS	= $(addprefix $(OBJ_D)/, $(addsuffix .o, $(FILES)))

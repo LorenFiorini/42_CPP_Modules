@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:13 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/22 06:49:34 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 02:48:32 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,12 @@ void    RPN::calculate(void)
     int             b;
 
     for (size_t i = 0; i < this->_expression.length(); i++) {
-        if (this->_expression[i] >= '0' && this->_expression[i] <= '9') {
+        if (std::isdigit(this->_expression[i])) {
             stk.push(this->_expression[i] - '0');
-        } else if (this->_expression[i] == '+' || this->_expression[i] == '-' || this->_expression[i] == '*' || this->_expression[i] == '/') {
+        } else if (this->_expression[i] == '+'
+                || this->_expression[i] == '-'
+                || this->_expression[i] == '*'
+                || this->_expression[i] == '/') {
             if (stk.size() < 2) {
                 throw std::runtime_error("Not enough numbers in the stack");
             }
@@ -81,11 +84,12 @@ void    RPN::calculate(void)
             } else if (this->_expression[i] == '/') {
                 if (b == 0) {
                     throw std::runtime_error("Division by zero");
+                } else {
+                    a /= b;
                 }
-                a /= b;
             }
             stk.push(a);
-            std::cout << "a: " << a << std::endl;
+            // std::cout << "a: " << a << std::endl;   // Debug
         } else if (this->_expression[i] != ' ') {
             throw std::runtime_error("Invalid character in expression");
         }

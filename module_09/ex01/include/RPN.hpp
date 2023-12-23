@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:00 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/22 06:48:01 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 02:51:06 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@
 # include <iostream>
 # include <string>
 # include <stack>
+# include <exception>
 
 class RPN
 {
-    private:
-        std::string _expression;
-        std::string _result;
+	private:
+		std::string _expression;
+		std::string _result;
 
-        RPN(void);
-    public:
-        RPN(std::string expression);
-        RPN(RPN const &src);
-        RPN &operator=(RPN const &src);
-        ~RPN(void);
+	public:
+		RPN(void);
+		RPN(std::string expression);
+		RPN(RPN const &src);
+		RPN &operator=(RPN const &src);
+		~RPN(void);
 
 
-        std::string getExpression(void) const;
-        void        setExpression(std::string expression);
+		std::string getExpression(void) const;
+		void        setExpression(std::string expression);
 
-        std::string getResult(void) const;
-        // void        setResult(std::string result); // Maybe?
+		std::string getResult(void) const;
 
-        void        calculate(void);
+		void        calculate(void);
 
 };
 
