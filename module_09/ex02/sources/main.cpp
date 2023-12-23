@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:56:41 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 11:04:28 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:51:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ int main (int argc, char **argv)
 
 	try
 	{
-		std::stringstream	stream;
 		PmergeMe			pmerge;
 
-		assert(pmerge.valid_sequence(argc, argv, stream));
-		std::cout << "Valid sequence" << std::endl; // Debug
-		pmerge.measure_merge_insertion_sort_time(stream);
-		std::cout << "Time measured" << std::endl; // Debug
+		assert(pmerge.valid_sequence(argc, argv));
+		// std::cout << "Valid sequence" << std::endl; // Debug
+		pmerge.measure_merge_insertion_sort_time();
+		// std::cout << "Time measured" << std::endl; // Debug
 		pmerge.print_results();
 	}
 	catch (std::exception &e)

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 10:46:34 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:43:16 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ enum eType {
 class PmergeMe
 {
 	private:
-		std::stringstream	_input;
+		std::vector<int>	_input;
 
 		std::vector<int>	_vecL;
 		std::vector<int>	_vecR;
@@ -48,8 +48,8 @@ class PmergeMe
 		double				_deqTime;
 
 
-		void				v_pair_elements(std::stringstream& stream);
-		void				d_pair_elements(std::stringstream& stream);
+		void				v_pair_elements(void);
+		void				d_pair_elements(void);
 		void				v_sort_pairs(void);
 		void				d_sort_pairs(void);
 		void				v_sort_by_larger(void);
@@ -60,10 +60,8 @@ class PmergeMe
 		int					d_binary_search(int number);
 		void				v_insert(void);
 		void				d_insert(void);
-		void				sortVector(std::stringstream &stream);
-		void				sortDeque(std::stringstream &stream);
-
-		void							displayTime(void);
+		void				sortVector(void);
+		void				sortDeque(void);
 
 	public:
 		PmergeMe(void);
@@ -71,8 +69,8 @@ class PmergeMe
 		PmergeMe &operator=(PmergeMe const &src);
 		~PmergeMe(void);
 
-		bool	valid_sequence(int argc, char **argv, std::stringstream& stream);
-		void	measure_merge_insertion_sort_time(std::stringstream& stream);
+		bool	valid_sequence(int argc, char **argv);
+		void	measure_merge_insertion_sort_time(void);
 		void	print_results(void);
 };
 
