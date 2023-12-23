@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 06:32:50 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:46:34 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,53 +39,41 @@ class PmergeMe
 	private:
 		std::stringstream	_input;
 
-		std::vector<int>	_vec;
-		std::vector<int>	_pendVec;
-		bool				_isVecSorted;
+		std::vector<int>	_vecL;
+		std::vector<int>	_vecR;
 		double				_vecTime;
 
-		std::deque<int>		_deq;
-		std::deque<int>		_pendDeq;
-		bool				_isDeqSorted;
+		std::deque<int>		_deqL;
+		std::deque<int>		_deqR;
 		double				_deqTime;
-		
 
-		std::vector<int>	buildVecJacobSequence();
-		std::deque<int>		buildDeqJacobSequence();
-		//! Functions
-		void	v_create_pairs(std::stringstream& stream);
-		void	d_create_pairs(std::stringstream& stream);
-		void	v_sort_pairs(void);
-		void	d_sort_pairs(void);
-		void	sortVecMainChain(void);
-		void	sortDeqMainChain(void);
-		void	v_binary_search(int number);
-		void	deqBinarySearch(int number);
-		void	insertVec(void);
-		void	insertDeq(void);
-	
+
+		void				v_pair_elements(std::stringstream& stream);
+		void				d_pair_elements(std::stringstream& stream);
+		void				v_sort_pairs(void);
+		void				d_sort_pairs(void);
+		void				v_sort_by_larger(void);
+		void				d_sort_by_larger(void);
+		std::vector<int>	v_jacobsthal_sequence(void);
+		std::deque<int>		d_jacobsthal_sequence(void);
+		int					v_binary_search(int number);
+		int					d_binary_search(int number);
+		void				v_insert(void);
+		void				d_insert(void);
+		void				sortVector(std::stringstream &stream);
+		void				sortDeque(std::stringstream &stream);
+
+		void							displayTime(void);
+
 	public:
 		PmergeMe(void);
 		PmergeMe(PmergeMe const &src);
 		PmergeMe &operator=(PmergeMe const &src);
 		~PmergeMe(void);
 
-		bool	valid_args(int argc, char **argv, std::stringstream& stream);
-
-		void    sortVector(std::stringstream &stream);
-		void    sortDeque(std::stringstream &stream);
-		
-		void	printVec(int id);
-		void	printDeq(int id);
-		void	displayTime(void);
-		std::vector<int>    getVector(void);
-		std::deque<int>     getDeque(void);
-		double	get_time_vec(void);
-		double	get_time_deq(void);
-		void	displayUnsortedSequence(int argc, char **argv);
-		void	displaySortedSequence();
-
-		void    setVecTime(double vecTime);
+		bool	valid_sequence(int argc, char **argv, std::stringstream& stream);
+		void	measure_merge_insertion_sort_time(std::stringstream& stream);
+		void	print_results(void);
 };
 
 #endif
