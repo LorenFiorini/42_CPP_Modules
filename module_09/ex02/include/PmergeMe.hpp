@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 19:43:16 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:14:00 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,61 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <sstream>
-# include <algorithm>
-# include <string>
 # include <vector>
 # include <deque>
+# include <math.h>
+# include <algorithm>
 # include <ctime>
-# include <iomanip>
 
-/** To-do:
- * 1. Check is swap() is c++98 compatible
- * 2. Try to use templates
-*/
+# define A 1
+# define B 2
 
-enum eType {
-	MAIN = 0x01,
-	PEND = 0x02,
-	VECTOR = 0x04,
-	DEQUE = 0x08
-};
+# define RED 	"\033[1;31m"
+# define GREEN 	"\033[1;32m"
+# define RESET 	"\033[0m"\
 
 class PmergeMe
 {
 	private:
-		std::vector<int>	_input;
+		std::vector<int>	_vec;
+		std::vector<int>	_vec_tmp;
+		std::deque<int>		_deq;
+		std::deque<int>		_deq_tmp;
 
-		std::vector<int>	_vecL;
-		std::vector<int>	_vecR;
-		double				_vecTime;
-
-		std::deque<int>		_deqL;
-		std::deque<int>		_deqR;
-		double				_deqTime;
-
-
-		void				v_pair_elements(void);
-		void				d_pair_elements(void);
-		void				v_sort_pairs(void);
-		void				d_sort_pairs(void);
-		void				v_sort_by_larger(void);
-		void				d_sort_by_larger(void);
-		std::vector<int>	v_jacobsthal_sequence(void);
-		std::deque<int>		d_jacobsthal_sequence(void);
-		int					v_binary_search(int number);
-		int					d_binary_search(int number);
-		void				v_insert(void);
-		void				d_insert(void);
-		void				sortVector(void);
-		void				sortDeque(void);
+		bool				_isVecSorted;
+		bool				_isDeqSorted;
 
 	public:
 		PmergeMe(void);
-		PmergeMe(PmergeMe const &src);
-		PmergeMe &operator=(PmergeMe const &src);
+		PmergeMe(const PmergeMe& src);
+		PmergeMe& operator=(const PmergeMe& src);
 		~PmergeMe(void);
 
-		bool	valid_sequence(int argc, char **argv);
-		void	measure_merge_insertion_sort_time(void);
-		void	print_results(void);
+
+		bool	validateArguments(int argc, char **argv, std::stringstream& stream);
+		void	v_pair_elements(std::stringstream& stream);
+		void	d_pair_elements(std::stringstream& stream);
+		void	v_sort_pairs(void);
+		void	d_sort_pairs(void);
+		void	v_sort_main_chain(void);
+		void	d_sort_main_chain(void);
+		void	v_binary_search(int number);
+		void	d_binary_search(int number);
+		void	insertVec(void);
+		void	insertDeq(void);
+	
+		std::vector<int>	get_jacobsthal_vector(void);
+		std::deque<int>		get_jacobsthal_deque(void);
+
+		void	printVec(int id);
+		void	printDeq(int id);
+		void	checkIfVecSorted(void);
+		void	checkIfDeqSorted(void);
+		void	displayTime(double vecTime, double decTime);
+		void	displayUnsortedSequence(int argc, char **argv);
+		void	displaySortedSequence(void);
 };
 
 #endif
