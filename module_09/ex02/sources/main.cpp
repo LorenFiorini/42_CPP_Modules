@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:56:41 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 23:00:47 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/26 01:56:41 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@ double	sortWithVector(std::stringstream &stream, PmergeMe &pmerge)
 	clock_t start = clock();
 	
 	pmerge.v_pair_elements(stream);
+	pmerge.v_print(A);	// Debug
+	pmerge.v_print(B);	// Debug
+
 	pmerge.v_sort_pairs();
 	pmerge.v_sort_main_chain();
-	pmerge.insertVec();
-	
+	pmerge.v_merge();
+	pmerge.v_print(A);	// Debug
 	clock_t end = clock();
-	double vecTime = double(end - start) / double(CLOCKS_PER_SEC);
+	double v_time = double(end - start) / double(CLOCKS_PER_SEC);
 	
-	return vecTime;
+	return v_time;
 }
 
 double	sortWithDeque(std::stringstream &stream, PmergeMe &pmerge)
@@ -34,14 +37,17 @@ double	sortWithDeque(std::stringstream &stream, PmergeMe &pmerge)
 	stream.clear();
 	stream.seekg(0, std::ios::beg);
 	pmerge.d_pair_elements(stream);
+	pmerge.d_print(A);	// Debug
+	pmerge.d_print(B);	// Debug
+
 	pmerge.d_sort_pairs();
 	pmerge.d_sort_main_chain();
-	pmerge.insertDeq();
-	
+	pmerge.d_merge();
+	pmerge.d_print(A);	// Debug
 	clock_t end = clock();
-	double deqTime = double(end - start) / double(CLOCKS_PER_SEC);
+	double d_time = double(end - start) / double(CLOCKS_PER_SEC);
 	
-	return deqTime;
+	return d_time;
 }
 
 void	mergeInsertionAlgorithm(int argc, char **argv) 
@@ -49,38 +55,35 @@ void	mergeInsertionAlgorithm(int argc, char **argv)
 	std::stringstream 	stream;
 	PmergeMe			pmerge;
 
-	if (!pmerge.validateArguments(argc, argv, stream))
+	if (!pmerge.is_input_valid(argc, argv, stream))
 		throw std::runtime_error("invalid arguments");
 		
-	double vecTime = sortWithVector(stream, pmerge);
-	double deqTime = sortWithDeque(stream, pmerge);
+	double v_time = sortWithVector(stream, pmerge);
+	double d_time = sortWithDeque(stream, pmerge);
 
-	std::cout << "Before: ";
-	pmerge.displayUnsortedSequence(argc, argv);
-	std::cout << "After : ";
-	pmerge.displaySortedSequence();
-	pmerge.displayTime(vecTime, deqTime);
+	pmerge.display_result(argc, argv, v_time, d_time);
 	
-	pmerge.checkIfVecSorted();
-	pmerge.checkIfDeqSorted();
+	pmerge.v_print(A);	// Debug
+	pmerge.v_print(B);	// Debug
+	pmerge.is_vector_sorted();	// Debug
+	pmerge.d_print(A);	// Debug
+	pmerge.d_print(B);	// Debug
+	pmerge.is_deque_sorted();	// Debug
 }
 
 int main (int argc, char **argv) 
 {
-	if (argc < 3)
-	{
-		std::cerr << RED << "Error: invalid usage" << std::endl;
-		return EXIT_FAILURE;
-	}
-	
 	try
 	{
+		if (argc < 3)
+			throw std::runtime_error("invalid usage");
 		mergeInsertionAlgorithm(argc, argv);
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << RED << "Error: " << e.what() << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
+		return (1);
 	}
 
-	return EXIT_SUCCESS;
+	return (0);
 }

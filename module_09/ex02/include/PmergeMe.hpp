@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/23 23:14:00 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/26 01:54:49 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ class PmergeMe
 		std::deque<int>		_deq;
 		std::deque<int>		_deq_tmp;
 
-		bool				_isVecSorted;
-		bool				_isDeqSorted;
+		std::vector<int>	get_jacobsthal_vector(void);
+		std::deque<int>		get_jacobsthal_deque(void);
 
 	public:
 		PmergeMe(void);
@@ -47,28 +47,25 @@ class PmergeMe
 		~PmergeMe(void);
 
 
-		bool	validateArguments(int argc, char **argv, std::stringstream& stream);
 		void	v_pair_elements(std::stringstream& stream);
 		void	d_pair_elements(std::stringstream& stream);
 		void	v_sort_pairs(void);
 		void	d_sort_pairs(void);
 		void	v_sort_main_chain(void);
 		void	d_sort_main_chain(void);
-		void	v_binary_search(int number);
-		void	d_binary_search(int number);
-		void	insertVec(void);
-		void	insertDeq(void);
+		int		v_binary_search(int target);
+		int		d_binary_search(int target);
+		void	v_merge(void);
+		void	d_merge(void);
 	
-		std::vector<int>	get_jacobsthal_vector(void);
-		std::deque<int>		get_jacobsthal_deque(void);
 
-		void	printVec(int id);
-		void	printDeq(int id);
-		void	checkIfVecSorted(void);
-		void	checkIfDeqSorted(void);
-		void	displayTime(double vecTime, double decTime);
-		void	displayUnsortedSequence(int argc, char **argv);
-		void	displaySortedSequence(void);
+		void	v_print(int id);
+		void	d_print(int id);
+		bool	is_vector_sorted(void);
+		bool	is_deque_sorted(void);
+
+		bool	is_input_valid(int argc, char **argv, std::stringstream& stream);
+		void	display_result(int argc, char **argv, double v_time, double d_time);
 };
 
 #endif
