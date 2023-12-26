@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:39 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/26 01:54:49 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/26 02:26:48 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ PmergeMe::PmergeMe(const PmergeMe& src)
 PmergeMe& PmergeMe::operator=(const PmergeMe& src)
 {
 	if (this != &src) {
-		this->_vec = src._vec;
+		this->_vector = src._vector;
 		this->_vec_tmp = src._vec_tmp;
-		this->_deq = src._deq;
+		this->_deque = src._deque;
 		this->_deq_tmp = src._deq_tmp;
 	}
 	return (*this);
@@ -37,32 +37,13 @@ PmergeMe::~PmergeMe(void) { }
 
 
 
-bool	PmergeMe::is_input_valid(int argc, char **argv, std::stringstream& stream) 
-{
-	int	num;
-
-	for (int i = 1; i < argc; i++) {
-		std::stringstream	input(argv[i]);
-		
-		if (!(input >> num))
-			return false;
-		else if (num < 0)
-			return false;
-		else if (i + 1 == argc)
-			stream << num;
-		else
-			stream << num << " ";
-	}
-	return (true);
-}
-
 void	PmergeMe::v_pair_elements(std::stringstream& stream)
 {
 	int	num;
 	while (stream >> num) {
 		_vec_tmp.push_back(num);
 		if (stream >> num)
-			_vec.push_back(num);
+			_vector.push_back(num);
 	}
 }
 
@@ -72,7 +53,7 @@ void	PmergeMe::d_pair_elements(std::stringstream& stream)
 	while (stream >> num) {
 		_deq_tmp.push_back(num);
 		if (stream >> num)
-			_deq.push_back(num);
+			_deque.push_back(num);
 	}
 }
 
@@ -80,10 +61,10 @@ void	PmergeMe::v_sort_pairs(void)
 {
 	int	num;
 
-	for (size_t i = 0; i < _vec.size(); i++) {
-		if ( _vec[i] > _vec_tmp[i])	{
-			num = _vec[i];
-			_vec[i] = _vec_tmp[i];
+	for (size_t i = 0; i < _vector.size(); i++) {
+		if ( _vector[i] > _vec_tmp[i])	{
+			num = _vector[i];
+			_vector[i] = _vec_tmp[i];
 			_vec_tmp[i] = num;
 		}
 	}
@@ -93,10 +74,10 @@ void	PmergeMe::d_sort_pairs(void)
 {
 	int	num;
 
-	for (size_t i = 0; i < _deq.size(); i++) {
-		if ( _deq[i] > _deq_tmp[i])	{
-			num = _deq[i];
-			_deq[i] = _deq_tmp[i];
+	for (size_t i = 0; i < _deque.size(); i++) {
+		if ( _deque[i] > _deq_tmp[i])	{
+			num = _deque[i];
+			_deque[i] = _deq_tmp[i];
 			_deq_tmp[i] = num;
 		}
 	}
@@ -108,13 +89,13 @@ void	PmergeMe::v_sort_main_chain(void)
 	std::vector<int>::iterator	jt;
 
 	jt = _vec_tmp.begin();
-	it = _vec.begin();
-	while (it + 1 != _vec.end()) {
+	it = _vector.begin();
+	while (it + 1 != _vector.end()) {
 		if (*it > *(it + 1)) {
 			std::iter_swap(jt, jt + 1);
 			std::iter_swap(it, it + 1);
             jt = _vec_tmp.begin();
-			it = _vec.begin();
+			it = _vector.begin();
 		} else {
 			jt++;
 			it++;
@@ -128,13 +109,13 @@ void	PmergeMe::d_sort_main_chain(void)
 	std::deque<int>::iterator	jt;
 
 	jt = _deq_tmp.begin();
-	it = _deq.begin();
-	while (it + 1 != _deq.end()) {
+	it = _deque.begin();
+	while (it + 1 != _deque.end()) {
 		if (*it > *(it + 1)) {
 			std::iter_swap(jt, jt + 1);
 			std::iter_swap(it, it + 1);
             jt = _deq_tmp.begin();
-			it = _deq.begin();
+			it = _deque.begin();
 		} else {
 			jt++;
 			it++;
@@ -145,13 +126,13 @@ void	PmergeMe::d_sort_main_chain(void)
 int			PmergeMe::v_binary_search(int target)
 {
 	int	left	= 0;
-	int	right	= _vec.size() - 1;
+	int	right	= _vector.size() - 1;
 
 	while (left <= right) {
 		int middle = (left + right) / 2;
-		if (target > _vec[middle]) {
+		if (target > _vector[middle]) {
 			left = middle + 1;
-		} else if (target < _vec[middle]) {
+		} else if (target < _vector[middle]) {
 			right = middle - 1;
 		} else {
 			return (middle);
@@ -159,20 +140,20 @@ int			PmergeMe::v_binary_search(int target)
 			// break;
 		}
 	}
-	// _vec.insert(_vec.begin() + left, num);
+	// _vector.insert(_vector.begin() + left, num);
 	return (left);
 }
 
 int			PmergeMe::d_binary_search(int target)
 {
 	int	left	= 0;
-	int	right	= _deq.size() - 1;
+	int	right	= _deque.size() - 1;
 
 	while (left <= right) {
 		int middle = (left + right) / 2;
-		if (target > _deq[middle]) {
+		if (target > _deque[middle]) {
 			left = middle + 1;
-		} else if (target < _deq[middle]) {
+		} else if (target < _deque[middle]) {
 			right = middle - 1;
 		} else {
 			return (middle);
@@ -180,7 +161,7 @@ int			PmergeMe::d_binary_search(int target)
 			// break;
 		}
 	}
-	// _deq.insert(_deq.begin() + left, num);
+	// _deque.insert(_deque.begin() + left, num);
 	return (left);
 }
 
@@ -215,8 +196,8 @@ std::deque<int>	PmergeMe::get_jacobsthal_deque(void)
 {
 	std::deque<int>	jacob(2, 0);
 	std::deque<int>	index(1, 1);
-	int					sz;
-	int					num;
+	int				sz;
+	int				num;
 
 	num = 0;
 	sz = _deq_tmp.size();
@@ -241,71 +222,55 @@ std::deque<int>	PmergeMe::get_jacobsthal_deque(void)
 void	PmergeMe::v_merge(void)
 {
 	std::vector<int>	jacob;
-	int					sz;
+	int					num;
+	int					pos;
 
-	sz = _vec_tmp.size();
 	jacob = get_jacobsthal_vector();
-	int p = v_binary_search(_vec_tmp[0]);
-	_vec.insert(_vec.begin() + p, _vec_tmp[0]);
+	num = _vec_tmp[0];
+	pos = v_binary_search(num);
+	_vector.insert(_vector.begin() + pos, num);
 	for (size_t i = 0; i < jacob.size(); i++) {
-		if (jacob[i] < sz) {
-			int	num = _vec_tmp[jacob[i]];
-			int pos = v_binary_search(num);
-			_vec.insert(_vec.begin() + pos, num);
+		if (jacob[i] < (int) _vec_tmp.size()) {
+			num = _vec_tmp[jacob[i]];
+			pos = v_binary_search(num);
+			_vector.insert(_vector.begin() + pos, num);
 		} else {
 			// break;
 			continue;
 		}
 	}
+	for (size_t i = 0; i < jacob.size(); i++) std::cout << jacob[i] << " "; std::cout << std::endl; // Debug
 }
 
 void	PmergeMe::d_merge(void)
 {
 	std::deque<int>	jacob;
-	int					sz;
+	int				num;
+	int				pos;
 
-	sz = _deq_tmp.size();
 	jacob = get_jacobsthal_deque();
-	int p = d_binary_search(_deq_tmp[0]);
-	_deq.insert(_deq.begin() + p, _deq_tmp[0]);
+	num = _deq_tmp[0];
+	pos = d_binary_search(num);
+	_deque.insert(_deque.begin() + pos, num);
 	for (size_t i = 0; i < jacob.size(); i++) {
-		if (jacob[i] < sz) {
-			int	num = _deq_tmp[jacob[i]];
-			int pos = d_binary_search(num);
-			_deq.insert(_deq.begin() + pos, num);
+		if (jacob[i] < (int) _deq_tmp.size()) {
+			num = _deq_tmp[jacob[i]];
+			pos = d_binary_search(num);
+			_deque.insert(_deque.begin() + pos, num);
 		} else {
 			// break;
 			continue;
 		}
 	}
-}
-
-void 	PmergeMe::display_result(int argc, char **argv, double v_time, double d_time)
-{
-	std::vector<int>::iterator	it;
-	int					num;
-	std::cout << "Before: ";
-	for (int i = 1; i < argc; i++) {
-		std::stringstream	input(argv[i]);
-		input >> num;
-		std::cout << num << " ";
-	}
-	std::cout << std::endl;
-	std::cout << "After : ";
-	for (it = _vec.begin(); it != _vec.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << std::fixed << std::setprecision(8) << std::setfill('0');
-	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << v_time << std::endl;
-	std::cout << "Time to process a range of " << _deq.size()<< " elements with std::deque  : " << d_time << std::endl;
+	for (size_t i = 0; i < jacob.size(); i++) std::cout << jacob[i] << " "; std::cout << std::endl; // Debug
 }
 
 bool	PmergeMe::is_vector_sorted(void)
 {
 	std::vector<int>::iterator pos;
 	
-	pos = std::adjacent_find(_vec.begin(), _vec.end(), std::greater<int>());
-	if (pos == _vec.end()) {
+	pos = std::adjacent_find(_vector.begin(), _vector.end(), std::greater<int>());
+	if (pos == _vector.end()) {
 		std::cout << "Vector container is sorted." << std::endl;
 		return (true);
 	}
@@ -317,8 +282,8 @@ bool	PmergeMe::is_deque_sorted(void)
 {
 	std::deque<int>::iterator pos;
 	
-	pos = std::adjacent_find(_deq.begin(), _deq.end(), std::greater<int>());
-	if (pos == _deq.end()) {
+	pos = std::adjacent_find(_deque.begin(), _deque.end(), std::greater<int>());
+	if (pos == _deque.end()) {
 		std::cout << "Deque container is sorted." << std::endl;
 		return (true);
 	}
@@ -332,7 +297,7 @@ void	PmergeMe::v_print(int id)
 
 	if (id == A) {
 		std::cout << "Main chain (vector): ";
-		for (it = _vec.begin(); it != _vec.end(); it++)
+		for (it = _vector.begin(); it != _vector.end(); it++)
 			std::cout << *it << " ";
 	} else if (id == B) {
 		std::cout << "2nd chain (vector): ";
@@ -350,7 +315,7 @@ void	PmergeMe::d_print(int id)
 
 	if (id == A) {
 		std::cout << "Main chain (deque): ";
-		for (it = _deq.begin(); it != _deq.end(); it++)
+		for (it = _deque.begin(); it != _deque.end(); it++)
 			std::cout << *it << " ";
 	} else if (id == B) {
 		std::cout << "2nd chain (deque): ";
@@ -360,4 +325,83 @@ void	PmergeMe::d_print(int id)
 		throw std::runtime_error("invalid id");
 	}
 	std::cout << std::endl;
+}
+
+
+double	PmergeMe::sort_using_vector(std::stringstream &stream)
+{
+	clock_t start = clock();
+	
+	this->v_pair_elements(stream);
+	this->v_sort_pairs();
+	this->v_sort_main_chain();
+	this->v_merge();
+	clock_t end = clock();
+	
+	double v_time = double(end - start) / double(CLOCKS_PER_SEC);
+	
+	return (v_time);
+}
+
+double	PmergeMe::sort_using_deque(std::stringstream &stream)
+{
+	clock_t start = clock();
+	
+	stream.clear();
+	stream.seekg(0, std::ios::beg);
+	this->d_pair_elements(stream);
+	this->d_sort_pairs();
+	this->d_sort_main_chain();
+	this->d_merge();
+	clock_t end = clock();
+	
+	double d_time = double(end - start) / double(CLOCKS_PER_SEC);
+	
+	return (d_time);
+}
+
+bool	PmergeMe::is_input_valid(int argc, char **argv, std::stringstream& stream) 
+{
+	int	num;
+
+	for (int i = 1; i < argc; i++) {
+		std::stringstream	input(argv[i]);
+
+		if (!(input >> num)) {
+			return false;
+		} else if (num < 0) {
+			return false;
+		} else {
+			if (i + 1 == argc) 
+				stream << num;
+			else
+				stream << num << " ";
+			this->_sequence.push_back(num);
+		}
+	}
+	return (true);
+}
+
+void 	PmergeMe::display_result(int argc, char **argv, double v_time, double d_time)
+{
+	std::vector<int>::iterator	it;
+	// int							num;
+
+	(void) argc;
+	(void) argv; 
+	std::cout << "Before: ";
+	for (it = _sequence.begin(); it != _sequence.end(); it++)
+		std::cout << *it << " ";
+	// for (int i = 1; i < argc; i++) {
+	// 	std::stringstream	input(argv[i]);
+	// 	input >> num;
+	// 	std::cout << num << " ";
+	// }
+	std::cout << std::endl;
+	std::cout << "After : ";
+	for (it = _vector.begin(); it != _vector.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl << std::fixed << std::setprecision(8) << std::setfill('0');
+	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : " << v_time << std::endl;
+	std::cout << "Time to process a range of " << _deque.size()<< " elements with std::deque  : " << d_time << std::endl;
 }
