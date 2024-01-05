@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:52 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/26 02:28:15 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/26 03:09:21 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ class PmergeMe
 		double	sort_using_vector(std::stringstream &stream);
 		double	sort_using_deque(std::stringstream &stream);
 		bool	is_input_valid(int argc, char **argv, std::stringstream& stream);
-		void	display_result(int argc, char **argv, double v_time, double d_time);
+		void	display_result(double v_time, double d_time);
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: lfiorini <lfiorini@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 04:37:39 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/12/26 02:26:48 by lfiorini         ###   ########.fr       */
+/*   Updated: 2023/12/26 03:09:31 by lfiorini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& src)
 	return (*this);
 }
 
-
 PmergeMe::~PmergeMe(void) { }
 
 
-
-void	PmergeMe::v_pair_elements(std::stringstream& stream)
+void		PmergeMe::v_pair_elements(std::stringstream& stream)
 {
 	int	num;
+
 	while (stream >> num) {
 		_vec_tmp.push_back(num);
 		if (stream >> num)
@@ -47,9 +46,10 @@ void	PmergeMe::v_pair_elements(std::stringstream& stream)
 	}
 }
 
-void	PmergeMe::d_pair_elements(std::stringstream& stream)
+void		PmergeMe::d_pair_elements(std::stringstream& stream)
 {
 	int	num;
+
 	while (stream >> num) {
 		_deq_tmp.push_back(num);
 		if (stream >> num)
@@ -57,7 +57,7 @@ void	PmergeMe::d_pair_elements(std::stringstream& stream)
 	}
 }
 
-void	PmergeMe::v_sort_pairs(void)
+void		PmergeMe::v_sort_pairs(void)
 {
 	int	num;
 
@@ -70,7 +70,7 @@ void	PmergeMe::v_sort_pairs(void)
 	}
 }
 
-void	PmergeMe::d_sort_pairs(void)
+void		PmergeMe::d_sort_pairs(void)
 {
 	int	num;
 
@@ -83,7 +83,7 @@ void	PmergeMe::d_sort_pairs(void)
 	}
 }
 
-void	PmergeMe::v_sort_main_chain(void)
+void		PmergeMe::v_sort_main_chain(void)
 {
 	std::vector<int>::iterator	it;
 	std::vector<int>::iterator	jt;
@@ -94,7 +94,7 @@ void	PmergeMe::v_sort_main_chain(void)
 		if (*it > *(it + 1)) {
 			std::iter_swap(jt, jt + 1);
 			std::iter_swap(it, it + 1);
-            jt = _vec_tmp.begin();
+			jt = _vec_tmp.begin();
 			it = _vector.begin();
 		} else {
 			jt++;
@@ -103,7 +103,7 @@ void	PmergeMe::v_sort_main_chain(void)
 	}
 }
 
-void	PmergeMe::d_sort_main_chain(void)
+void		PmergeMe::d_sort_main_chain(void)
 {
 	std::deque<int>::iterator	it;
 	std::deque<int>::iterator	jt;
@@ -114,7 +114,7 @@ void	PmergeMe::d_sort_main_chain(void)
 		if (*it > *(it + 1)) {
 			std::iter_swap(jt, jt + 1);
 			std::iter_swap(it, it + 1);
-            jt = _deq_tmp.begin();
+			jt = _deq_tmp.begin();
 			it = _deque.begin();
 		} else {
 			jt++;
@@ -136,11 +136,8 @@ int			PmergeMe::v_binary_search(int target)
 			right = middle - 1;
 		} else {
 			return (middle);
-			// left = middle;
-			// break;
 		}
 	}
-	// _vector.insert(_vector.begin() + left, num);
 	return (left);
 }
 
@@ -157,11 +154,8 @@ int			PmergeMe::d_binary_search(int target)
 			right = middle - 1;
 		} else {
 			return (middle);
-			// left = middle;
-			// break;
 		}
 	}
-	// _deque.insert(_deque.begin() + left, num);
 	return (left);
 }
 
@@ -219,7 +213,7 @@ std::deque<int>	PmergeMe::get_jacobsthal_deque(void)
 	return (index);
 }
 
-void	PmergeMe::v_merge(void)
+void		PmergeMe::v_merge(void)
 {
 	std::vector<int>	jacob;
 	int					num;
@@ -239,10 +233,9 @@ void	PmergeMe::v_merge(void)
 			continue;
 		}
 	}
-	for (size_t i = 0; i < jacob.size(); i++) std::cout << jacob[i] << " "; std::cout << std::endl; // Debug
 }
 
-void	PmergeMe::d_merge(void)
+void		PmergeMe::d_merge(void)
 {
 	std::deque<int>	jacob;
 	int				num;
@@ -262,7 +255,6 @@ void	PmergeMe::d_merge(void)
 			continue;
 		}
 	}
-	for (size_t i = 0; i < jacob.size(); i++) std::cout << jacob[i] << " "; std::cout << std::endl; // Debug
 }
 
 bool	PmergeMe::is_vector_sorted(void)
@@ -291,7 +283,7 @@ bool	PmergeMe::is_deque_sorted(void)
 	return (false);
 }
 
-void	PmergeMe::v_print(int id)
+void		PmergeMe::v_print(int id)
 {
 	std::vector<int>::iterator	it;
 
@@ -309,7 +301,7 @@ void	PmergeMe::v_print(int id)
 	std::cout << std::endl;
 }
 
-void	PmergeMe::d_print(int id)
+void		PmergeMe::d_print(int id)
 {
 	std::deque<int>::iterator	it;
 
@@ -382,21 +374,13 @@ bool	PmergeMe::is_input_valid(int argc, char **argv, std::stringstream& stream)
 	return (true);
 }
 
-void 	PmergeMe::display_result(int argc, char **argv, double v_time, double d_time)
+void 	PmergeMe::display_result(double v_time, double d_time)
 {
 	std::vector<int>::iterator	it;
-	// int							num;
 
-	(void) argc;
-	(void) argv; 
 	std::cout << "Before: ";
 	for (it = _sequence.begin(); it != _sequence.end(); it++)
 		std::cout << *it << " ";
-	// for (int i = 1; i < argc; i++) {
-	// 	std::stringstream	input(argv[i]);
-	// 	input >> num;
-	// 	std::cout << num << " ";
-	// }
 	std::cout << std::endl;
 	std::cout << "After : ";
 	for (it = _vector.begin(); it != _vector.end(); it++)
